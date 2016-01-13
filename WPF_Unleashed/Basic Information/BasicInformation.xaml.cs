@@ -10,25 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WPF_Unleashed
+namespace WPF_Unleashed.Basic_Information
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for BasicInformation.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class BasicInformation : Window
     {
-        public MainWindow()
+        public BasicInformation()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Basic_Information.BasicInformation basicInformationWindow = new Basic_Information.BasicInformation();
-            basicInformationWindow.Show();
         }
     }
 }
