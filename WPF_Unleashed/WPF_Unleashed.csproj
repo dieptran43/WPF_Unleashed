@@ -53,7 +53,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Basic Information\BasicInformation.xaml">
+    <Page Include="1.Basic Information\1.WPFandSilverlight\WPFandSilverlight.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="1.Basic Information\BasicInformation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -61,11 +65,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="1.Basic Information\1.WPFandSilverlight\WPFandSilverlight.xaml.cs">
+      <DependentUpon>WPFandSilverlight.xaml</DependentUpon>
+    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Basic Information\BasicInformation.xaml.cs">
+    <Compile Include="1.Basic Information\BasicInformation.xaml.cs">
       <DependentUpon>BasicInformation.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">

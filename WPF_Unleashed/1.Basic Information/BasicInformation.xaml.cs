@@ -23,5 +23,11 @@ namespace WPF_Unleashed.Basic_Information
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            WPF_Unleashed._1.Basic_Information._1.WPFandSilverlight.WPFandSilverlight MyWPFandSilverlight = new WPF_Unleashed._1.Basic_Information._1.WPFandSilverlight.WPFandSilverlight();
+            MyWPFandSilverlight.Show();
+        }
     }
 }
