@@ -4,6 +4,7 @@
         Title="BasicInformation" Height="300" Width="300">
     <Grid>
         <Button Content="1.WPF and Silverlight" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="137" Click="Button_Click"/>
+        <Button Content="2.XAML" HorizontalAlignment="Left" Margin="10,49,0,0" VerticalAlignment="Top" Width="60" Click="Button_Click_1"/>
 
     </Grid>
 </Window>
