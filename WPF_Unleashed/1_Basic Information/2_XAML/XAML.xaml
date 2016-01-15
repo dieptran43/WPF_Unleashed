@@ -3,6 +3,16 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="XAML" Height="300" Width="300">
     <Grid>
-        
+        <Button xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+            <Button.Content>
+                <Rectangle Height="40" Width="40" Fill="Black"/>
+            </Button.Content>
+        </Button>
+        <ListBox xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+            <ListBox.Items>
+                <ListBoxItem Content="Item 1"/>
+                <ListBoxItem Content="Item 2"/>
+            </ListBox.Items>
+        </ListBox>
     </Grid>
 </Window>
