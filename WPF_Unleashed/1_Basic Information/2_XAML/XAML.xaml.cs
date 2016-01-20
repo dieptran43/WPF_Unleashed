@@ -24,6 +24,11 @@ namespace WPF_Unleashed._1_Basic_Information._2_XAML
             InitializeComponent();
         }
 
+        private void okButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
         // - Язык XAML может стать очень компактным средством описания пользовательского интерфейса и других иерархий объектов.
         // - XAML позволяет легко отделить внешний вид приложения от его внутренней логики, что сильно упрощает последующее сопровождение, даже если команда разработчиков состоит всего из одного человека.
         // - Код на XAML легко скопировать в различные средства разработки, например Visual Studio, Expression Blend или какую-нибудь небольшую автономную программу, и сразу увидеть результат без какой либо компиляции.
@@ -426,6 +431,254 @@ namespace WPF_Unleashed._1_Basic_Information._2_XAML
         // в XAML2009 появилось два новых элемента – x:Members и x:Property, – которые позволяют определять дополнительные свойства непосредственно на XAML. но не приемлима с wpf.
 
         // Трюки с классами чтения и записи XAML
+        // Мы уже видели, как читать и записывать XAML-код с помощью методов XamlReader.Load и XamlWriter.Save из пространства имен System.Windows.Markup.
+        // Новая сборка System.Xaml содержит абстрактные базовые классы System.Xaml.XamlReader и System.Xaml.XamlWriter
+
+        // Обзор
+        // Класс XamlReader предназначен для генерации потока логических узлов XAML из произвольного источника
+        // а XamlWriter на входе получает такой поток узлов и выводит его произвольным способом.
+        // Считыватели (производные от System.Xaml.XamlReader):
+        // - System.Xaml.XamlXmlReader – читает XML-код (из System.Xml.XmlReader, System.IO.TextReader, System.IO.Stream или из файла, заданного своим именем в виде строки).
+        // - System.Xaml.XamlObjectReader – читает существующий граф объектов.
+        // - System.Windows.Baml2006.Baml2006Reader – читает BAML-код (в WPF все еще используется формат 2006 года).
+        // - System.Xaml.XamlBackgroundReader – обертывает другой объект XamlReader, реализуя двойную буферизацию, что позволяет считывателю работать не в том же потоке, что записыватель. 
+        // Записыватели (производные от System.Xaml.XamlWriter):
+        // - System.Xaml.XamlXmlWriter – записывает XML (используя System.Xml.XmlWriter, System.IO.TextWriter или Stream).
+        // - System.Xaml.XamlObjectWriter – создает граф объектов.
+
+        // Описанная в этом разделе функциональность применима главным образом к вариантам XAML, не относящимся к WPF!
+        // Почему для чтения XAML-файлов лучше использовать XamlXmlReader, а не просто XmlReader? Разве XAML не является диалектом XML?
+        // XamlXmlReader в действительности пользуется классом XmlReader, но дополнительно обеспечивает еще две важные возможности.
+        // - Абстрагирует различия в представлениях XML, эквивалентных с точки зрения XAML.
+        // - Порождает поток узлов XAML, совместимый с любым записывателем XAML и содержащий дополнительную информацию, которая отсутствует в исходном XML.
+        // Первая возможность существенна для сокращения работы, связанной с чтением XAML. Например, следующие три фрагмента XAML-кода выражают одну и ту же концепцию – кнопку Button, для которой свойство Content содержит строку "ОК": 
+        // <!-- Неявная установка свойства содержимого: -->
+        // <Button xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        // OK
+        // </Button>
+        // <-- Установка свойства с помощью синтаксиса элементов: -->
+        // <Button xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        // <Button.Content>
+        // OK
+        // </Button.Content>
+        // </Button>
+        // <!-- Установка свойства с помощью синтаксиса атрибутов: -->
+        // <Button xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        // Content="OK"/>
+
+        // Циклы обработки узлов
+        // Простой цикл обработки узлов
+        // while (reader.Read())
+        // {
+        // writer.WriteNode(reader);
+        // }
+
+        // !!! check includes
+        //public static object ConvertXmlStringToObjectGraph(string xmlString)
+        //{
+        //    // String -> TextReader -> XamlXmlReader
+        //    using (TextReader textReader = new StringReader(xmlString))
+        //    using (XamlXmlReader reader = new XamlXmlReader(textReader, System.Windows.Markup.XamlReader.GetWpfSchemaContext()))
+        //    using (XamlObjectWriter writer = new XamlObjectWriter(reader.SchemaContext))
+        //    {
+        //        // Простой цикл обработки узлов
+        //        while (reader.Read())
+        //        {
+        //            writer.WriteNode(reader);
+        //        }
+        //        // По завершении работы XamlObjectWriter здесь будет
+        //        // находиться экземпляр корневого объекта
+        //        return writer.Result;
+        //    }
+        //}
+
+        // Чтение XAML
+        // Самым важным свойством XamlReader, которое имеет смысл анализировать при записи узла в цикле, является NodeType, способное принимать одно из восьми перечисляемых значений:
+        // - StartObject – считыватель позиционирован в начале явно представленного объекта, например открывающего тега XML-элемента или расширения разметки, указанного в качестве значения свойства.
+        // - GetObject – считыватель позиционирован в начале неявного объекта, например коллекции, которая в XAML явно не представлена, хотя ее элементы присутствуют (как в примере ListBox, приведенном в разделе «Элементы коллекций»).
+        // - EndObject – считыватель позиционирован в конце объекта (который ранее встречался в виде StartObject или GetObject). Каждому узлу StartObject или GetObject соответствует узел EndObject, который встретится в потоке позже.
+        // - StartMember – считыватель позиционирован в начале некоторого члена объекта: свойства (присоединенного или нет), события (присоединенного или нет) либо директивы XAML, например x:Key. Каждый атрибут принадлежит некоторому родительскому объекту, поэтому узлу StartMember обязательно предшествует узел StartObject или GetObject. Отметим, что в XML неважно, задан ли член с помощью синтаксиса атрибута свойства или элемента свойства, – в любом случае он является членом, а не объектом.
+        // - EndMember – считыватель позиционирован в конце члена объекта (для которого ранее встречался узел StartMember). Каждому узлу StartMember обязательно соответствует находящийся далее в потоке узел EndMember. 
+        // - Value – считыватель позиционирован в начале значения члена объекта. Поскольку каждое значение ассоциировано с каким-то членом, то невозможно появление узла Value до соответствующего ему StartMember (и предшествующего ему узла StartObject или GetObject).
+        // - NamespaceDeclaration – считыватель позиционирован на объявлении пространства имен XML (которое ассоциирует пространство имен с префиксом). Отметим, что такой узел непосредственно предшествует узлу StartObject, который «содержит » эти объявления. Это может показаться удивительным, но, учитывая, что объявления пространств имен предоставляют контекст даже для корневого элемента, важно, чтобы контекст был определен предварительно.
+        // None – считыватель позиционирован на чем-то, не являющемся реальным узлом, например находящемся в конце файла. Узлы такого типа можно без опаски игнорировать.
+        // В классе XamlReader определены четыре важных свойства, которые позволяют извлекать нужные данные об узле любого типа: Type, Member, Value и Namespace.
+        // Когда свойство HasLineInfo равно true, можно получить данные о номере строки и позиции в ней, обратившись к свойствам LineNumber и LinePosition соответственно.
+
+        // Откуда берутся экземпляры XamlType и XamlMember, обнаруживаемые считывателями XAML?
+        // Эти классы представляют собой специфическую для XAML форму отражения .NET.
+        // Разобрать Поток узлов XAML
+
+        // Совместимость разметки
+
+        // Запись в объекты
+        // Производятся две модификации:
+        // - Убираются все члены, относящиеся к событиям, так как если обработчик события не найден, то XamlObjectWriter возбуждает исключение, например,с таким сообщением: Failed to create a 'Click' from the text 'button_Click'. Отметим, что в классе XamlObjectWriter имеется свойство RootObjectInstance, которому можно присвоить объект с подходящими обработчиками событий, но проще всего эти события просто выкинуть – для инструмента экспериментирования с XAML такой подход вполне приемлем. Кроме этого, убирается атрибут x:Class, потому что в автономном XAML-коде он недопустим.
+        // - Элемент Window конвертируется в Page. В главе 7 эти элементы рассматриваются подробно, но смысл в том, что элемент Window не может быть потомком другого элемента, а XAMLPAD2009 всегда пытается присоединить корневой объект в качестве непосредственного потомка своего собственного пользовательского интерфейса. Существуют и другие способы справиться с этой трудностью (например, увидев, что корневым элементом является Window, создавать из него окно), но описанной выше замены одного узла XAML другим для учебного примера достаточно.
+
+        //public static object ConvertXmlStringToMorphedObjectGraph(string xmlString)
+        //{
+        //­­// String­­> TextReader­­> XamlXmlReader
+        //­­using (TextReader textReader = new StringReader(xmlString))
+        //­­using (XamlXmlReader reader = new XamlXmlReader(textReader,
+        //­­­­­­­­­­­System.Win­dows.Markup.XamlReader.GetWpfSchemaContext()))
+        //­­using (XamlObjectWriter writer = new XamlObjectWriter(reader.SchemaContext))
+        //­­{
+        //­­­­// Цикл об­ра­бот­ки уз­лов
+        //­­­­while (reader.Read())
+        //­­­­{
+        //// Пропустить события и x:Class
+        //if (reader.NodeType == XamlNodeType.StartMember &&
+        //reader.Member.IsEvent || reader.Member == XamlLanguage.Class)
+        //{
+        //reader.Skip();
+        //}
+        //if (reader.NodeType == XamlNodeType.StartObject &&
+        //reader.Type.UnderlyingType == typeof(Window))
+        //{
+        //// Преобразовать Window в Page
+        //writer.WriteStartObject(new XamlType(typeof(Page),
+        //reader.SchemaContext));
+        //}
+        //    else
+        //{
+        //// В противном случае вывести узел без изменений
+        //writer.WriteNode(reader);
+        //}
+        //­­­­}
+        //­­­­// По за­вер­ше­нии ра­бо­ты XamlObjectWriter здесь бу­дет
+        //­­­­// эк­зем­п­ляр кор­не­во­го объ­ек­та
+        //­­­­return writer.Result;
+        //­­}
+        //}
+
+        // Запись в формате XML
+        //public static string RewriteXaml(string xmlString)
+        //{
+        //­­// String­­> TextReader­­> XamlXmlReader
+        //­­using (TextReader textReader = new StringReader(xmlString))
+        //­­using (XamlXmlReader reader = new XamlXmlReader(textReader))
+        //­­// TextWriter­­> XmlWriter­­> XamlXmlWriter
+        //­­using (StringWriter textWriter = new StringWriter())
+        //­­using (XmlWriter xmlWriter = XmlWriter.Create(textWriter,
+        //­­­­­­­­­­­new XmlWriterSettings { Indent = true, OmitXmlDeclaration = true }))
+        //­­using (XamlXmlWriter writer = new XamlXmlWriter(xmlWriter,
+        //­­­­­­­­­­­reader.SchemaContext))
+        //­­{
+        //­­­­// Про­стой цикл об­ра­бот­ки уз­лов
+        //­­­­while (reader.Read())
+        //­­­­{
+        //­­­­­­writer.WriteNode(reader);
+        //­­­­}
+        //­­­­return textWriter.ToString();
+        //­­}
+        //}
+
+        // XamlServices
+        // Чтобы пользователю приходилось писать меньше кода, самые распространенные случаи употребления средств чтения и записи XAML инкапсулированы в простые статические методы, определенные в классе System.Xaml.XamlSer­vices, а именно:
+        // - Load – есть несколько перегруженных вариантов, принимающих имя файла в виде строки, объекты Stream, TextReader, XmlReader или XamlReader. Все они возвращают корень соответствующего графа объектов, как и прежний метод XamlReader.Load. Внутри Load вся работа производится объектами XamlXmlReader и XamlObjectWriter.
+        // - Parse – как и Load, метод Parse возвращает корень графа объектов, но на входе принимает XAML-содержимое в виде строки. Внутри он создает из этой строки объект StringReader, затем XmlReader и наконец XamlXmlReader, от имени которого можно уже вызвать метод Load. Таким образом, Parse аналогичен методу ConvertXmlStringToObjectGraph
+        // - Save – принимает на входе объект и, в зависимости от перегруженного варианта, возвращает его содержимое в виде строки, объекта Stream, Text­Writer, XmlWriter либо XamlWriter или даже сохраняет содержимое объекта прямо в текстовом файле. Внутри Save создает экземпляры Xaml­Object­Re­ader и XamlXmlWriter (если только ему уже не передан объект XamlWriter). Он присваивает свойствам Indent и OmitXmlDeclaration объекта XamlWriter значение true.
+        // - Transform – выполняет тривиальный цикл обработки узлов, применяя считыватель и записыватель, которые ему переданы.
+
+        //public static void Transform(XamlReader reader, XamlWriter writer)
+        //{
+        //­­IXamlLineInfo producer = reader as IXamlLineInfo;
+        //­­IXamlLineInfoConsumer consumer = writer as IXamlLineInfoConsumer;
+        //­­bool transferLineInfo = (producer != null && producer.HasLineInfo &&
+        //­­­­­­­­­­­­­­­­­­­­­­­­­­­consumer != null && consumer.ShouldProvideLineInfo);
+        //­­// Улуч­шен­ный цикл об­ра­бот­ки уз­лов
+        //­­while (reader.Read())
+        //­­{
+        //­­­­// Передать информацию о строке
+        //if (transferLineInfo && producer.LineNumber > 0)
+        //consumer.SetLineInfo(producer.LineNumber, producer.LinePosition);
+        //­­­­writer.WriteNode(reader);
+        //­­}
+        //}
+
+        //public static object ConvertXmlStringToObjectGraph(string xmlString)
+        //{
+        //­­// String­­> TextReader­­> XamlXmlReader
+        //­­using (TextReader textReader = new StringReader(xmlString))
+        //­­using (XamlXmlReader reader = new XamlXmlReader(textReader,
+        //­­­­­­­­­­­System.Win­dows.Markup.XamlReader.GetWpfSchemaContext()))
+        //­­using (XamlObjectWriter writer = new XamlObjectWriter(reader.SchemaContext))
+        //­­{
+        //// Цикл обработки узлов
+        //XamlServices.Transform(reader, writer);
+        //­­
+        //­­­­// По за­вер­ше­нии ра­бо­ты XamlObjectWriter здесь бу­дет
+        //­­­­// эк­зем­п­ляр кор­не­во­го объ­ек­та
+        //­­return writer.Result;
+        //­­}
+        //}
+
+        // Берегитесь подводных камней XamlServices в WPF XAML!
+        //public static string RewriteXaml(string xmlString)
+        //{
+        //­­return XamlServices.Save(XamlServices.Parse(xmlString));
+        //}
+        // приведенный код просто не работает, поскольку XamlObjectWriter в настоящее время не поддерживает WPF-объекты. Можно было бы вместо этого воспользоваться более старыми классами XamlReader и XamlWriter:
+        //return System.Win­dows.Markup.XamlWriter.Save(­­System.Win­dows.Markup.XamlReader.Parse(xmlString));
+        // Или, если нужна красивая печать:
+        // using (StringWriter textWriter = new StringWriter())
+        // using (XmlWriter xmlWriter = XmlWriter.Create(textWriter, new XmlWriterSettings { Indent = true, OmitXmlDeclaration = true }))
+        //{
+        //­­System.Win­dows.Markup.XamlWriter.Save(
+        //­­­­System.Win­dows.Markup.XamlReader.Parse(xmlString), xmlWriter);
+        //­­return textWriter.ToString();
+        //}
+
+        // Набор инструментов Microsoft XAML Toolkit построенный на основе классов из пространства имен System.Xaml, предлагает несколько очень интересных возможностей, например интеграцию XAML с инструментом FxCop и объектную модель документа XAML.
+
+        // Ключевые слова XAML
+        // Специальные атрибуты, определенные консорциумом W3C
+        // xml:space для управления разбором пробелов и xml:lang для объявления языка и культуры документа
+        // Ключевые слова из пространства имен языка XAML со стандартным префиксом x
+        // x:AsyncRecords - Атрибут корневого элемента - Управляет размером блока при асинхронной загрузке XAML
+        // X:Arguments - Атрибут или вложенный элемент - Задает аргумент (или несколько аргументов, если употребляется в качестве элемента), передаваемый конструктору элемента. При использовании в сочетании с x:FactoryMethod задает аргумент(ы) фабричного метода 
+        // X:Boolean - Представляет класс System.Boolean
+        // X:Byte - Представляет класс System.Byte
+        // x:Char - Представляет класс System.Char
+        // x:Class - Определяет для корневого элемента класс, производный от типа элемента. Может сопровождаться необязательным префиксом пространства имен .NET
+        // x:ClassAttributes - Не используется в WPF; содержит атрибуты, относящиеся к Windows Workflow Foundation
+        // x:ClassModifier - Определяет видимость класса, указанного в x:Class (по умолчанию открытого). Значение атрибута должно быть задано в терминах используемого процедурного языка (например public или inter­nal для С#)
+        // x:Code - Окружает процедурный код, включаемый в класс, указанный в x:Class.
+        // x:ConnectionId - Не для открытого применения
+        // x:Decimal - Представляет System.Decimal
+        // x:Double - Представляет System.Double
+        // x:FactoryMethod - Определяет статический метод, вызываемый для получения экземпляра элемента вместо конструктора
+        // x:FieldModifier - Определяет видимость поля, генерируемого для элемента (по умолчанию internal). Как и в случае x:ClassModifier, значение этого атрибута должно быть задано в терминах процедурного языка (например, public, private, … для С#)
+        // x:Int16 - Представляет System.Int16
+        // x:Int32 - Представляет System.Int32
+        // x:Int64 - Представляет System.Int64
+        // x:Key - Задает ключ элемента при добавлении в словарь родителя
+        // x:Members - Определяет дополнительные члены корневого класса, заданного в x:Class
+        // x:Name - Задает имя поля, генерируемого для элемента, по которому на него можно ссылаться из процедурного кода
+        // x:Object - Представляет System.Object
+        // x:Property - Определяет свойство внутри элемента x:Members
+        // x:Shared - Может принимать значение false для запрета использования одного экземпляра ресурса в нескольких местах (см. главу 12)
+        // x:Single - Представляет System.Single
+        // x:String - Представляет System.String
+        // x:Subclass - Определяет подкласс класса, заданного в x:Class, в котором хранится содержимое, определенное в XAML. В качестве необязательного префикса можно указать пространство имен .NET (используется с языками, не поддерживающими частичные классы)
+        // x:SynchronousMode - Определяет, может ли содержимое XAML загружаться асинхронно
+        // x:TimeSpan - Представляет System.TimeSpan
+        // x:TypeArguments - Делает класс универсальным (как List<T>), конкретизируемым указанными аргументами (например, List<Int32> или List<String>). Может содержать список аргументов конкретизации через запятую. Типам, отсутствующим в пространстве имен по умолчанию, должен предшествовать префикс пространств имен XML
+        // x:Uid - Помечает элемент идентификатором для локализации (см. главу 12)
+        // x:Uri - Представляет System.Uri
+        // x:XData - Произвольный остров данных XML, который остается непрозрачным для анализатора XAML
+
+        // элементы пространства имен XAML, которые можно принять за ключевые слова, хотя на самом деле это расширения разметки (реальные классы .NET в пространстве имен System.Win­dows.Markup). Суффикс Extension в именах классов опущен, поскольку они обычно используются без суффикса.
+        // x:Array - Представляет массив .NET. Потомками элемента x:Array являются элементы массива. В элементе должен присутствовать атрибут x:Type, определяющий тип массива
+        // x:Null - Представляет ссылку null
+        // x:Reference - Ссылка на именованный элемент. Должен присутствовать единственный позиционный параметр, задающий имя этого элемента
+        // x:Static - Ссылка на любое статическое свойство, поле, константу или элемент перечисления, определенные в процедурном коде. При компиляции XAML это может быть даже неоткрытый член, определенный в той же сборке. Строка Member должна быть квалифицирована префиксом пространства имен XML, если тип не находится в пространстве имен по умолчанию
+        // x:Type - Представляет экземпляр типа System.Type так же, как оператор typeof в С#. Строка TypeName должна быть квалифицирована префиксом пространства имен XML, если тип не находится в пространстве имен по умолчанию
+
+        // Резюме
+        // Возражение 1: XML слишком многословен, долго набирать
+        // Возражение 2: системы, основанные на XML, низкопроизводительны
 
 
         //!!!
@@ -437,7 +690,11 @@ namespace WPF_Unleashed._1_Basic_Information._2_XAML
         // - найти книгу с которой можно копипастить без редактирования
         // - FileStream
         // - using
-        // - partial
+        // - partial class
         // - x:TypeArguments
+        // - XamlXmlReader
+        // - XamlXmlWriter
+        // - using
+        // - x:FactoryMethod
     }
 }

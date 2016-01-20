@@ -14,5 +14,22 @@
                 <ListBoxItem Content="Item 2"/>
             </ListBox.Items>
         </ListBox>
+
+        <StackPanel xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+            <!-- Задаем имена двумя разными способами -->
+            <Button Name="okButton" Click="okButton_Click">OK</Button>
+            <Button x:Name="cancelButton">Cancel</Button>
+            <ListBox>
+                <!-- Задаем содержимое тремя разными способами -->
+                    <ListBoxItem Content="Item 1"/>
+                    <ListBoxItem>Item 2</ListBoxItem>
+                    <ListBoxItem>
+                        <ListBoxItem.Content>
+                            Item 3
+                        </ListBoxItem.Content>
+                    </ListBoxItem>
+            </ListBox>
+        </StackPanel>
     </Grid>
 </Window>
