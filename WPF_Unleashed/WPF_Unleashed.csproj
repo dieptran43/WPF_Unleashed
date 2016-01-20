@@ -72,6 +72,7 @@
     <Compile Include="1_Basic Information\1_WPFandSilverlight\WPFandSilverlight.xaml.cs">
       <DependentUpon>WPFandSilverlight.xaml</DependentUpon>
     </Compile>
+    <Compile Include="1_Basic Information\2_XAML\Testing.cs" />
     <Compile Include="1_Basic Information\2_XAML\XAML.xaml.cs">
       <DependentUpon>XAML.xaml</DependentUpon>
     </Compile>
