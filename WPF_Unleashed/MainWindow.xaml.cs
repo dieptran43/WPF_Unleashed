@@ -29,6 +29,7 @@ namespace WPF_Unleashed
         {
             Basic_Information.BasicInformation basicInformationWindow = new Basic_Information.BasicInformation();
             basicInformationWindow.Show();
+            this.Close();
         }
     }
 }

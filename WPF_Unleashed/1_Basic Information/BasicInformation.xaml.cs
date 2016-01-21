@@ -28,12 +28,14 @@ namespace WPF_Unleashed.Basic_Information
         {
             _1.Basic_Information._1.WPFandSilverlight.WPFandSilverlight MyWPFandSilverlight = new _1.Basic_Information._1.WPFandSilverlight.WPFandSilverlight();
             MyWPFandSilverlight.Show();
+            this.Close();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             _1_Basic_Information._2_XAML.XAML myWindow = new _1_Basic_Information._2_XAML.XAML();
             myWindow.Show();
+            this.Close();
         }
     }
 }

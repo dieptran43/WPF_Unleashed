@@ -29,7 +29,7 @@ namespace WPF_Unleashed._1_Basic_Information._2_XAML
             b.Content = "Cancel";
 
             System.Windows.Controls.Button b1 = new System.Windows.Controls.Button();
-            b1.Click += new System.Windows.RoutedEventHandler(button_Click);
+            b1.Click += new System.Windows.RoutedEventHandler(Button_Click);
             b1.Content = "OK";
 
             // WPF XML: xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" <-> System.Windows.Controls, и не только, все пространства имен соответствующие wpf
@@ -455,9 +455,11 @@ namespace WPF_Unleashed._1_Basic_Information._2_XAML
             // - Следует ли разделять поведение универсального класса на базовые классы и подклассы.
         }
 
-        private void button_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            
+            StreamConditioningOffset streamConditioningOffset = new StreamConditioningOffset();
+            streamConditioningOffset.Show();
+            this.Close();
         }
 
         // - Язык XAML может стать очень компактным средством описания пользовательского интерфейса и других иерархий объектов.
