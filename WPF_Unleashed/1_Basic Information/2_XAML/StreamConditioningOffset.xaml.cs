@@ -127,9 +127,46 @@ namespace WPF_Unleashed._1_Basic_Information._2_XAML
             // OnPropertyChanged("MyList");
 
         }
+
         // Range validation rule, is my realisation correct?
 
+        // DataGrid
         public List<Test> MyList { get; set; }
+
+
+        // GroupBox
+        private bool myStreamConditioning;
+        private bool myStreamConditioningOffset;
+
+        public bool StreamConditioning
+        {
+            get
+            {
+                return myStreamConditioning;
+            }
+
+            set
+            {
+                myStreamConditioning = value;
+                OnPropertyChanged("StreamConditioning");
+            }
+        }
+
+        public bool MyStreamConditioningOffset
+        {
+            get
+            {
+                return myStreamConditioningOffset;
+            }
+
+            set
+            {
+                myStreamConditioningOffset = value;
+                OnPropertyChanged("MyStreamConditioningOffset");
+            }
+        }
+
+
     }
 
     public class Test
@@ -137,4 +174,6 @@ namespace WPF_Unleashed._1_Basic_Information._2_XAML
         public bool IsChecked { get; set; }
         public string Offset { get; set; }
     }
+    
+    
 }
