@@ -10,31 +10,23 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WPF_Unleashed
+namespace WPF_Unleashed._2_WPFApplication_Creation
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for WPFApplicationCreation.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class WPFApplicationCreation : Window
     {
-        public MainWindow()
+        public WPFApplicationCreation()
         {
             InitializeComponent();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Basic_Information.BasicInformation basicInformationWindow = new Basic_Information.BasicInformation();
-            basicInformationWindow.Show();
-            this.Close();
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            _2_WPFApplication_Creation.WPFApplicationCreation window = new _2_WPFApplication_Creation.WPFApplicationCreation();
+            _4_Element_size_position_transformation.ElementSizePositionTransformation window = new _4_Element_size_position_transformation.ElementSizePositionTransformation();
             window.Show();
             this.Close();
         }

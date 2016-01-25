@@ -141,7 +141,7 @@ namespace WPF_Unleashed._1_Basic_Information._3_WPFBasics
         //!!! - разобрать потом, если будет нужно.
         // - свойства зависимости;
         // - маршрутизации событий
-        // - is, as
+        // - is, as +
         // - foreach
         // - универсальные типы .NET
         // - propdp
