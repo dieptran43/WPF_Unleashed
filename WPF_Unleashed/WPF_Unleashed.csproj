@@ -65,6 +65,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="1_Basic Information\3_WPFBasics\AboutWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="1_Basic Information\3_WPFBasics\WPFBasics.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="1_Basic Information\BasicInformation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -82,6 +90,13 @@
     <Compile Include="1_Basic Information\2_XAML\Testing.cs" />
     <Compile Include="1_Basic Information\2_XAML\XAML.xaml.cs">
       <DependentUpon>XAML.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="1_Basic Information\3_WPFBasics\AboutWindow.xaml.cs">
+      <DependentUpon>AboutWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="1_Basic Information\3_WPFBasics\MyButton.cs" />
+    <Compile Include="1_Basic Information\3_WPFBasics\WPFBasics.xaml.cs">
+      <DependentUpon>WPFBasics.xaml</DependentUpon>
     </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>

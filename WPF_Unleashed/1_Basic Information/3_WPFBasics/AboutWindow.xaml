@@ -1,0 +1,34 @@
+﻿<Window x:Class="WPF_Unleashed._1_Basic_Information._3_WPFBasics.AboutWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        SizeToContent="WidthAndHeight"
+        Title="AboutWindow" Height="300" Width="300" Background="OrangeRed">
+    <Grid>
+        <StackPanel>
+            <Label FontWeight="Bold" FontSize="20" Foreground="White">
+                WPF 4 Unleashed
+            </Label>
+            <Label>© 2010 SAMS Publishing</Label>
+            <Label>Installed Chapters:</Label>
+            <ListBox>
+                <ListBoxItem>Chapter 1</ListBoxItem>
+                <ListBoxItem>Chapter 2</ListBoxItem>
+            </ListBox>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" TextElement.FontSize="30" TextElement.FontStyle="Italic">
+                <Button MinWidth="75" Margin="10" Content="Help ">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Foreground" Value="Blue"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave" MinWidth="75" Margin="10">OK</Button>
+            </StackPanel>
+            <StatusBar>You have successfully registered this product.</StatusBar>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -37,5 +37,12 @@ namespace WPF_Unleashed.Basic_Information
             myWindow.Show();
             this.Close();
         }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            _1_Basic_Information._3_WPFBasics.WPFBasics wpfBasics = new _1_Basic_Information._3_WPFBasics.WPFBasics();
+            wpfBasics.Show();
+            this.Close();
+        }
     }
 }
