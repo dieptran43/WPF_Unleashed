@@ -77,7 +77,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="2_WPFApplication_Creation\4_Element_size_position_transformation\Alignment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="2_WPFApplication_Creation\4_Element_size_position_transformation\ElementSizePositionTransformation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="2_WPFApplication_Creation\4_Element_size_position_transformation\MarginPadding.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="2_WPFApplication_Creation\4_Element_size_position_transformation\Transform.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="2_WPFApplication_Creation\4_Element_size_position_transformation\Visibility.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -106,8 +122,20 @@
     <Compile Include="1_Basic Information\3_WPFBasics\WPFBasics.xaml.cs">
       <DependentUpon>WPFBasics.xaml</DependentUpon>
     </Compile>
+    <Compile Include="2_WPFApplication_Creation\4_Element_size_position_transformation\Alignment.xaml.cs">
+      <DependentUpon>Alignment.xaml</DependentUpon>
+    </Compile>
     <Compile Include="2_WPFApplication_Creation\4_Element_size_position_transformation\ElementSizePositionTransformation.xaml.cs">
       <DependentUpon>ElementSizePositionTransformation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="2_WPFApplication_Creation\4_Element_size_position_transformation\MarginPadding.xaml.cs">
+      <DependentUpon>MarginPadding.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="2_WPFApplication_Creation\4_Element_size_position_transformation\Transform.xaml.cs">
+      <DependentUpon>Transform.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="2_WPFApplication_Creation\4_Element_size_position_transformation\Visibility.xaml.cs">
+      <DependentUpon>Visibility.xaml</DependentUpon>
     </Compile>
     <Compile Include="2_WPFApplication_Creation\WPFApplicationCreation.xaml.cs">
       <DependentUpon>WPFApplicationCreation.xaml</DependentUpon>

@@ -28,7 +28,6 @@ namespace WPF_Unleashed._2_WPFApplication_Creation
         {
             _4_Element_size_position_transformation.ElementSizePositionTransformation window = new _4_Element_size_position_transformation.ElementSizePositionTransformation();
             window.Show();
-            this.Close();
         }
     }
 }

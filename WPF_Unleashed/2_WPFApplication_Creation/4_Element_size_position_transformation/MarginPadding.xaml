@@ -1,0 +1,39 @@
+﻿<Window x:Class="WPF_Unleashed._2_WPFApplication_Creation._4_Element_size_position_transformation.MarginPadding"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MarginPadding" Height="356.935" Width="377.738">
+    <Grid>
+        <!-- Отступы: -->
+
+        <!-- 1 значение: один и тот же отступ со всех четырех сторон: -->
+        <Label HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Padding="0" Background="Orange">0</Label>
+        <Label HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Padding="10" Background="Orange">10</Label>
+
+        <!-- 2 значения: первое значение относится к левому и правому отступам, второе - к верхнему и нижнему:-->
+        <Label HorizontalAlignment="Left" Margin="16,91,0,0" VerticalAlignment="Top" Padding="20,5" Background="Orange">20,5</Label>
+        <Label Content="0,10,20,30" HorizontalAlignment="Left" Margin="10,134,0,0" VerticalAlignment="Top" Padding="0,10,20,30" Background="Orange"/>
+
+        <!-- Поля: -->
+
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="100" Margin="111,17,0,0" VerticalAlignment="Top" Width="100">
+            <!-- Поле отсутствует: -->
+            <Label Background="Aqua">0</Label>
+        </Border>
+
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="100" Margin="111,147,0,0" VerticalAlignment="Top" Width="100">
+            <!-- 1 значение: одно и то же поле со всех четырех сторон: -->
+            <Label Margin="10" Background="Aqua">10</Label>
+        </Border>
+
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="100" Margin="235,17,0,0" VerticalAlignment="Top" Width="100">
+            <!-- 2 значение: первое значение относится к левому и правому,полям, второе – к верхнему и нижнему : -->
+            <Label Margin="20,5" Background="Aqua">20,5</Label>
+        </Border>
+
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="100" Margin="235,147,0,0" VerticalAlignment="Top" Width="100">
+            <!-- 4 значение: левое,верхнее,правое,нижнее: -->
+            <Label Margin="0,10,20,30" Background="Aqua">0,10,20,30</Label>
+        </Border>
+
+    </Grid>
+</Window>

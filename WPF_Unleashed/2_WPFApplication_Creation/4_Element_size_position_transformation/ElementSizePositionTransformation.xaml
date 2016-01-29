@@ -3,6 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="ElementSizePositionTransformation" Height="300" Width="300">
     <Grid>
-        
+        <Button Content="Margin Padding" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="101" Click="Button_Click"/>
+        <Button Content="Visibility" HorizontalAlignment="Left" Margin="10,52,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
+        <Button Content="Alignment" HorizontalAlignment="Left" Margin="10,91,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_2"/>
+        <Button Content="Transform" HorizontalAlignment="Left" Margin="10,128,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_3"/>
     </Grid>
 </Window>
