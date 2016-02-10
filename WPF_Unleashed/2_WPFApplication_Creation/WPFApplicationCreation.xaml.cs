@@ -29,5 +29,11 @@ namespace WPF_Unleashed._2_WPFApplication_Creation
             _4_Element_size_position_transformation.ElementSizePositionTransformation window = new _4_Element_size_position_transformation.ElementSizePositionTransformation();
             window.Show();
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            _5_LayoutPanels.LayoutPanels window = new _5_LayoutPanels.LayoutPanels();
+            window.Show();
+        }
     }
 }
