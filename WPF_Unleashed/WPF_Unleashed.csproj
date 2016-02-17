@@ -101,7 +101,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="2_WPFApplication_Creation\5_LayoutPanels\DockPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="2_WPFApplication_Creation\5_LayoutPanels\DockPanel1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="2_WPFApplication_Creation\5_LayoutPanels\GridSplitter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="2_WPFApplication_Creation\5_LayoutPanels\LayoutPanels.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="2_WPFApplication_Creation\5_LayoutPanels\SharedSizeGroup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="2_WPFApplication_Creation\5_LayoutPanels\VisualStudio.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -148,8 +168,23 @@
     <Compile Include="2_WPFApplication_Creation\5_LayoutPanels\Canvas.xaml.cs">
       <DependentUpon>Canvas.xaml</DependentUpon>
     </Compile>
+    <Compile Include="2_WPFApplication_Creation\5_LayoutPanels\DockPanel.xaml.cs">
+      <DependentUpon>DockPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="2_WPFApplication_Creation\5_LayoutPanels\DockPanel1.xaml.cs">
+      <DependentUpon>DockPanel1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="2_WPFApplication_Creation\5_LayoutPanels\GridSplitter.xaml.cs">
+      <DependentUpon>GridSplitter.xaml</DependentUpon>
+    </Compile>
     <Compile Include="2_WPFApplication_Creation\5_LayoutPanels\LayoutPanels.xaml.cs">
       <DependentUpon>LayoutPanels.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="2_WPFApplication_Creation\5_LayoutPanels\SharedSizeGroup.xaml.cs">
+      <DependentUpon>SharedSizeGroup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="2_WPFApplication_Creation\5_LayoutPanels\VisualStudio.xaml.cs">
+      <DependentUpon>VisualStudio.xaml</DependentUpon>
     </Compile>
     <Compile Include="2_WPFApplication_Creation\WPFApplicationCreation.xaml.cs">
       <DependentUpon>WPFApplicationCreation.xaml</DependentUpon>

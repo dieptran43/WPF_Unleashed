@@ -4,6 +4,11 @@
         Title="LayoutPanels" Height="300" Width="300">
     <Grid>
         <Button Content="Canvas" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <Button Content="DockPanel" HorizontalAlignment="Left" Margin="10,46,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
+        <Button Content="DockPanel1" HorizontalAlignment="Left" Margin="10,85,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_2"/>
+        <Button Content="Visual Studio" HorizontalAlignment="Left" Margin="10,122,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_3"/>
+        <Button Content="GridSplitter" HorizontalAlignment="Left" Margin="10,159,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_4"/>
+        <Button Content="SharedSizeGroup" HorizontalAlignment="Left" Margin="10,196,0,0" VerticalAlignment="Top" Width="98" Click="Button_Click_5"/>
 
     </Grid>
 </Window>
