@@ -117,11 +117,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="2_WPFApplication_Creation\5_LayoutPanels\ScrollView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="2_WPFApplication_Creation\5_LayoutPanels\SharedSizeGroup.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="2_WPFApplication_Creation\5_LayoutPanels\ViewBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="2_WPFApplication_Creation\5_LayoutPanels\VisualStudio.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="2_WPFApplication_Creation\5_LayoutPanels\VisualStudioLikePanes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -180,11 +192,20 @@
     <Compile Include="2_WPFApplication_Creation\5_LayoutPanels\LayoutPanels.xaml.cs">
       <DependentUpon>LayoutPanels.xaml</DependentUpon>
     </Compile>
+    <Compile Include="2_WPFApplication_Creation\5_LayoutPanels\ScrollView.xaml.cs">
+      <DependentUpon>ScrollView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="2_WPFApplication_Creation\5_LayoutPanels\SharedSizeGroup.xaml.cs">
       <DependentUpon>SharedSizeGroup.xaml</DependentUpon>
     </Compile>
+    <Compile Include="2_WPFApplication_Creation\5_LayoutPanels\ViewBox.xaml.cs">
+      <DependentUpon>ViewBox.xaml</DependentUpon>
+    </Compile>
     <Compile Include="2_WPFApplication_Creation\5_LayoutPanels\VisualStudio.xaml.cs">
       <DependentUpon>VisualStudio.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="2_WPFApplication_Creation\5_LayoutPanels\VisualStudioLikePanes.xaml.cs">
+      <DependentUpon>VisualStudioLikePanes.xaml</DependentUpon>
     </Compile>
     <Compile Include="2_WPFApplication_Creation\WPFApplicationCreation.xaml.cs">
       <DependentUpon>WPFApplicationCreation.xaml</DependentUpon>
@@ -228,7 +249,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
