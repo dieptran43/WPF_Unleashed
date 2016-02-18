@@ -6,6 +6,7 @@
         <Button Content="4. Element size, position, transformation
                 " HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="227" Click="Button_Click"/>
         <Button Content="5. Layout Panels" HorizontalAlignment="Left" Margin="10,48,0,0" VerticalAlignment="Top" Width="97" Click="Button_Click_1"/>
+        <Button Content="6. Input Events" HorizontalAlignment="Left" Margin="10,85,0,0" VerticalAlignment="Top" Width="85" Click="Button_Click_2"/>
 
     </Grid>
 </Window>

@@ -35,5 +35,11 @@ namespace WPF_Unleashed._2_WPFApplication_Creation
             _5_LayoutPanels.LayoutPanels window = new _5_LayoutPanels.LayoutPanels();
             window.Show();
         }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            _6_InputEvents.InputEvents window = new _6_InputEvents.InputEvents();
+            window.Show();
+        }
     }
 }
