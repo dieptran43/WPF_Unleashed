@@ -1,0 +1,20 @@
+﻿<Window x:Class="WPF_Unleashed._2_WPFApplication_Creation._6_InputEvents.Spin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Spin" Height="300" Width="300">
+    <Window.Background>
+        <LinearGradientBrush>
+            <GradientStop Color="White"/>
+            <GradientStop Color="Orange" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
+    <Grid Name="grid" IsManipulationEnabled="True">
+        <Image Name="prizeWheel" RenderTransformOrigin="0.5,0.5"
+Source="prizeWheel.png" Margin="0 30 0 0">
+            <Image.RenderTransform>
+                <RotateTransform/>
+            </Image.RenderTransform>
+        </Image>
+        <Image Source="arrow.png" VerticalAlignment="Top" Stretch="None"/>
+    </Grid>
+</Window>

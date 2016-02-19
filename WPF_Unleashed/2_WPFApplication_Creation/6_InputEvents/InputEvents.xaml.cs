@@ -73,6 +73,36 @@ namespace WPF_Unleashed._2_WPFApplication_Creation._6_InputEvents
             base.OnKeyDown(e);
         }
 
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            TouchEvents window = new TouchEvents();
+            window.Show();
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            ManipulationEvents window = new ManipulationEvents();
+            window.Show();
+        }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            Spin window = new Spin();
+            window.Show();
+        }
+
+        private void Button_Click_5(object sender, RoutedEventArgs e)
+        {
+            Command window = new Command();
+            window.Show();
+        }
+
+        private void Button_Click_6(object sender, RoutedEventArgs e)
+        {
+            IntegralCommand window = new IntegralCommand();
+            window.Show();
+        }
+
         // проверяется, что нажата в точности комбинация Alt+A без каких-либо дополнительных модификаторов:
         //protected override void OnKeyDown(KeyEventArgs e)
         //{
@@ -239,11 +269,126 @@ namespace WPF_Unleashed._2_WPFApplication_Creation._6_InputEvents
         // Класс StylusDevice
         // Класс StylusDevice содержит ряд свойств, в том числе:
         // - Inverted – булевское значение, показывающее, что стилус используется как ластик (то есть экрана касается его обратный конец).
-        // - 
+        // - InAir – булевское значение, показывающее, касается ли стилус экрана. Это важно, потому что некоторые устройства регистрируют его перемещение даже без касания при условии, что стилус находится достаточно близко к экрану.
+        // - StylusButtons – коллекция объектов типа StylusButton. В отличие от мыши, у стилуса нет фиксированного списка кнопок. В каждом объекте StylusButton имеется строковое свойство Name и идентификатор Guid, а также свойство StylusButtonState, принимающее одно из значений: Up или Down.
+        // - TabletDevice – свойство типа System.Windows.Input.TabletDevice, предоставляющее детальную информацию о текущем оборудовании и возможностях стилуса (в частности, чувствительность к силе нажатия или поддержка перемещений без касания). Свойство Type равно Stylus для перьевого и Touch – для сенсорного дигитайзера. 
+        // В классе StylusDevice имеется метод GetPosition, работающий так же, как его аналог для мыши. Но дополнительно есть более подробный метод GetStylusPoints, который возвращает коллекцию объектов StylusPoint. В каждом объекте StylusPoint имеются следующие свойства:
+        // - X – абсцисса точки касания стилуса относительно элемента, на котором он находится.
+        // - Y – ордината точки касания стилуса относительно элемента, на котором он находится.
+        // - PressureFactor – значение от 0 до 1, показывающее давление, приложенное к стилусу в момент регистрации точки. Чем больше значение, тем сильнее нажатие (если оборудование вообще поддерживает чувствительность к силе нажатия). Если чувствительность к силе нажатия не поддерживается, то PressureFactor будет равно 0.5.
 
+        // События
+        // К стилусу относятся следующие события:
+        // - StylusEnter и StylusLeave
+        // - StylusMove и PreviewStylusMove
+        // - StylusInAirMove и PreviewStylusInAirMove
+        // - StylusDown, StylusUp, PreviewStylusDown и PreviewStylusUp
+        // - StylusButtonDown, StylusButtonUp, PreviewStylusButtonDown и PreviewStylusButtonUp
+        // - StylusSystemGesture и PreviewStylusSystemGesture
+        // - StylusInRange, StylusOutOfRange, PreviewStylusInRange и PreviewStylusOutOfRange
+        // - GotStylusCapture и LostStylusCapture
+        
+        // Обработчикам этих событий передается объект класса StylusEventArgs, свойство StylusDevice которого дает доступ к объекту StylusDevice. Для удобства в нем определены также члены InAir, Inverted, GetPosition и GetStylusPoints, обертывающие одноименные члены класса StylusDevice.
+        // Некоторым обработчикам в качестве аргумента передается объект одного из подклассов StylusEventArgs:
+        // - StylusDownEventArgs – передается обработчикам событий StylusDown и PreviewStylusDown; добавляет целочисленное свойство TapCount, аналогичное свойству ClickCount в событиях мыши.
+        // - StylusButtonEventArgs – передается обработчикам событий StylusButtonDown, StylusButtonUp и их Preview-версий; добавляет свойство StylusButton, описывающее нажатую кнопку.
+        // - StylusSystemGestureEventArgs – передается обработчикам событий StylusSystemGesture и PreviewStylusSystemGesture; добавляет свойство SystemGesture, принадлежащее типу перечисления SystemGesture и принимающее следующие значения: Tap, RightTap, TwoFingerTap, Drag, RightDrag, Flick, HoldEnter, HoldLeave, HoverEnter, HoverLeave, None. 
+        // Совет
+        // В WPF определен объект Stroke (росчерк), с помощью которого можно визуально представить информацию, хранящуюся в коллекции StylusPoints, и элемент InkPresenter, содержащий коллекцию объектов Stroke. Во многих сценариях рисования и рукописного ввода можно также использовать элемент InkCanvas, который основан на использовании InkPresenter. В InkCanvas встроена возможность работы со стилусом, если таковой имеется, а также средства для сбора и отображения росчерков. При использовании этого элемента вам вообще не придется обрабатывать события стилуса самостоятельно!
 
+        // Мультисенсорные события
+        // Совет
+        // Если вы хотите эмулировать мультисенсорный (или даже простой сенсорный) ввод на «обычном » компьютере, то можете воспользоваться комплектом MultiPoint Mouse SDK
 
+        // Простые события касания
+        // Простые события касания во многом похожи на события мыши:
+        // - TouchEnter и TouchLeave
+        // - TouchMove и PreviewTouchMove
+        // - TouchDown, TouchUp, PreviewTouchDown и PreviewTouchUp
+        // - GotTouchCapture и LostTouchCapture
+        // Обработчикам событий касания передается объект класса TouchEventArgs, содержащий следующие члены:
+        // - GetTouchPoint – метод, возвращающий объект TouchPoint. Этот объект представляет точку касания в системе координат, связанной с элементом, которому она принадлежит. Аналог метода GetPosition для событий мыши.
+        // - GetIntermediateTouchPoints – метод, возвращающий коллекцию объектов TouchPoint в координатах элемента, собранных за время, прошедшее между текущим и предыдущим событиями касания. Аналог метода GetStylusPoints для событий стилуса.
+        // - TouchDevice – свойство, возвращающее объект TouchDevice.
+        // Совет
+        // В версии Silverlight 4 событий касания нет. Если вы хотите написать код, который поддерживал бы мультисенсорный ввод и работал как в WPF, так и в Silverlight, то можете воспользоваться низкоуровневым событием FrameReported, которое присутствует в обеих системах. Событие FrameReported определено в статическом классе System.Windows.Input.Touch и сообщает о точках касания TouchPoint для всего приложения в целом. Это не маршрутизируемое событие; выяснять, где произошло касание, придется самостоятельно.
 
+        // События манипулирования, описывающие сдвиг, поворот и масштабирование
+        // Мультисенсорный ввод обычно применяется пользователями для сдвига, поворота и масштабирования элементов. Тут все просто, так как эти действия точно отображаются на преобразования TranslateTransform, RotateTransform и ScaleTransform соответственно. А вот определить, когда эти преобразования следует применять и с какими параметрами, куда сложнее.
+        // На наше счастье, WPF предоставляет высокоуровневые события манипулирования, позволяющие без труда поддержать сдвиг, поворот и масштабирование. Вот перечень основных событий такого рода:
+        // - ManipulationStarting и ManipulationStarted
+        // - ManipulationDelta
+        // - ManipulationCompleted
+
+        // Использование событий манипулирования
+        // Информация передается в следующих свойствах класса ManipulationDelta:
+        // - Translation – свойство типа Vector, содержащее значения X и Y
+        // - Scale – еще одно свойство типа Vector
+        // - Rotation – свойство типа double, определяющее угол поворота в градусах
+        // - Expansion – свойство типа Vector, которое при наличии Scale можно считать избыточным; сообщает разницу в размерах, выраженную в абсолютных независимых от устройства пикселах, а не в терминах коэффициентов масштабирования
+        // Манипуляции всегда производятся относительно контейнера манипулирования. По умолчанию это элемент, для которого свойство IsManipulationEnabled=True;
+
+        // Добавление инерции
+        // Чтобы включить инерцию, следует обработать событие ManipulationInertiaStarting – в дополнение к другим событиям манипулирования. Именно ManipulationInertiaStarting – а не ManipulationCompleted – первое событие манипулирования, которое генерируется после убирания всех пальцев с экрана. В обработчике ManipulationInertiaStarting вы можете решить, что именно поддерживать, для этого следует установить какие-то из свойств ManipulationInertiaStartingEventArgs. TranslationBehavior, ManipulationInertiaStartingEventArgs.RotationBehavior и ManipulationInertiaStartingEventArgs.ExpansionBehavior. В результате система продолжит генерировать события ManipulationDelta (в которых свойство ManipulationDeltaEventArgs. IsInertial будет равно true) до тех пор, пока «трение » не заставит объект остановиться, а в этот момент будет сгенерировано событие ManipulationCompleted. (Если в обработчике события ManipulationInertiaStarting ничего не делать, то событие  ManipulationCompleted генерируется сразу после него.)
+        // Ниже приведен перечень свойств, которые можно установить для настройки инерции при сдвиге, повороте или масштабировании:
+        // - TranslationBehavior – DesiredDisplacement, DesiredDeceleration, InitialVelocity
+        // - RotationBehavior – DesiredRotation, DesiredDeceleration, InitialVelocity
+        // - ExpansionBehavior – DesiredExpansion, DesiredDeceleration, InitialRadius, InitialVelocity
+        // Необходимо следить, чтобы элемент не ушел полностью за пределы экрана, особенно если включена инерция. Можно воспользоваться событием ManipulationBoundaryFeedback, чтобы получать уведомления о том, что элемент достиг границы контейнера манипулирования, и воспрепятствовать его перемещению. 
+        // Совет
+        // WPF предлагает простой способ заставить окно колебаться, когда что-то проходит через его границу, – как в эффекте прокрутки за конец списка, который сделался популярным благодаря iPhone. Чтобы этого добиться, нужно в обработчике события ManipulationDelta вызвать метод ReportBoundaryFeedback полученного объекта ManipulationDeltaEventArgs. Тогда будет сгенерировано событие ManipulationBoundaryFeedback, которое будет обработано элементом Window, и результатом станет желаемый эффект.
+        // В классе ManipulationDeltaEventArgs есть методы Complete и Cancel. В чем между ними разница?
+        // Метод Complete останавливает манипуляцию (как прямую, так и инерционную). Метод Cancel тоже останавливает манипуляцию, но передает данные о касании событиям мыши, так что поведение может быть частично продолжено для элементов, умеющих работать с мышью, но не с сенсорными устройствами.
+        // Совет
+        // Можно воспользоваться встроенной в элемент ScrollViewer поддержкой сдвигов и присвоить свойству PanningMode одно из значений HorizontalOnly, VerticalOnly, HorizontalFirst, VerticalFirst или Both. В классе ScrollViewer имеются также свойства PanningDeceleration и PanningRatio. Последнее используется как коэффициент при вычислении расстояния для реализующего манипуляцию преобразования TranslateTransform. 
+        // По умолчанию свойство PanningMode равно None, но некоторые элементы управления WPF задают для своего внутреннего ScrollViewer другое значение, более подходящее для стандартного стиля и позволяющее работать с мультисенсорными устройствами без явных действий со стороны программиста.
+        // Совет
+        // В доступном для скачивания наборе инструментов Surface Toolkit for Windows Touch есть немало превосходных элементов управления WPF для Microsoft Surface, которые оптимизированы для работы с мультисенсорными устройствами. В их число входят как варианты большинства стандартных элементов управления для сенсорного рабочего стола (например, SurfaceButton и SurfaceCheckBox), так и совершенно новые элементы (в частности, ScatterView и LibraryStack). 
+
+        // Команды
+        // Хотя эта глава посвящена в основном событиям, важно иметь представление о встроенной в WPF поддержке команд, более абстрактной и слабо связанной версии событий. 
+        // Каноническими примерами служат команды Cut (Вырезать), Copy (Копировать) и Paste (Вставить). В приложениях эти действия часто представляются сразу несколькими способами: пункты MenuItem меню Menu, пункты MenuItem меню ContextMenu, кнопки Button на панели инструментов ToolBar, сочетания клавиш и т. д. 
+        // К счастью, поддержка команд в WPF спроектирована так, чтобы максимально упростить работу в подобных ситуациях. Предлагаемый механизм уменьшает объем написанного вами кода (а иногда позволяет вообще не писать процедурный код) и дает вам возможность более гибко изменять пользовательский интерфейс, не нарушая стоящую за ним логику.
+        // Мощь механизма команд основывается на трех основных особенностях:
+        // - В WPF определено много встроенных команд.
+        // - В команды встроена автоматическая поддержка жестов ввода (например, сочетаний клавиш).
+        // - Встроенное поведение некоторых элементов управления WPF уже ориентировано на те или иные команды.
+
+        // Встроенные команды
+        // Командой называется любой объект, реализующий интерфейс ICommand (из пространства имен System.Windows.Input), в котором объявлены три простых члена:
+        // - Execute – метод, который выполняет характерную для команды логику
+        // - CanExecute – метод, который возвращает true, если команда активирована, и false, если она деактивирована
+        // - CanExecuteChanged – событие, которое генерируется при изменении значения CanExecute
+        // К счастью, в такие элементы управления, как Button, CheckBox и MenuItem, уже встроена логика, позволяющая им взаимодействовать с любой командой от вашего имени. В этих элементах имеется простое свойство Command (типа ICommand). Если оно установлено, то элемент автоматически вызывает метод команды Execute (если CanExecute возвращает true) всякий раз, как генерирует событие Click. Кроме того, свойство IsEnabled автоматически синхронизируется со значением, возвращаемым методом CanExecute, – для этого используется событие CanExecuteChanged. Поскольку вся эта функциональность становится доступна в результате присваивания простому свойству, то к ней можно обращаться из кода на XAML.
+        // Но и это еще не все. В WPF уже определен целый ряд команд, поэтому вам не придется писать реализующие ICommand классы для таких команд, как Cut, Copy и Paste, и думать о том, где хранить соответствующие объекты. Встроенные в WPF команды доступны в виде статических свойств пяти разных классов: 
+        // - ApplicationCommands – Close, Copy, Cut, Delete, Find, Help, New, Open, Paste, Print, PrintPreview, Properties, Redo, Replace, Save, SaveAs, SelectAll, Stop, Undo и др.
+        // - ComponentCommands – MoveDown, MoveLeft, MoveRight, MoveUp, ScrollByLine, ScrollPageDown, ScrollPageLeft, ScrollPageRight, ScrollPageUp, SelectToEnd, SelectToHome, SelectToPageDown, SelectToPageUp и др.
+        // - MediaCommands – ChannelDown, ChannelUp, DecreaseVolume, FastForward, IncreaseVolume, MuteVolume, NextTrack, Pause, Play, PreviousTrack, Record, Rewind, Select, Stop и др.
+        // - NavigationCommands – BrowseBack, BrowseForward, BrowseHome, BrowseStop, Favorites, FirstPage, GoToPage, LastPage, NextPage, PreviousPage, Refresh, Search, Zoom и др.
+        // - EditingCommands – AlignCenter, AlignJustify, AlignLeft, AlignRight, CorrectSpellingError, DecreaseFontSize, DecreaseIndentation, EnterLineBreak, EnterParagraphBreak, IgnoreSpellingError, IncreaseFontSize, IncreaseIndentation, MoveDownByLine, MoveDownByPage, MoveDownByParagraph, MoveLeftByCharacter, MoveLeftByWord, MoveRightByCharacter, MoveRightByWord и др. 
+        // Каждое из этих свойств возвращает не какой-то уникальный тип, реализующий интерфейс ICommand, а объект одного и того же класса RoutedUICommand, который не только реализует ICommand, но и поддерживает всплытие как маршрутизируемые события.
+        // helpButton.Command = ApplicationCommands.Help;
+        // helpButton.Content = ApplicationCommands.Help.Text;
+        // Совет
+        // Строка Text во всех командах RoutedUICommand автоматически локализуется при использовании любого языка, поддерживаемого WPF! Это означает, что кнопка, свойству Content которой присвоено значение ApplicationCommands.Help.Text, автоматически будет называться «Справка», еслив текущей культуре пользовательского интерфейса задан русский язык. Даже в контексте, где предполагается использование изображений, а не текста (скажем, на панели инструментов), эту строку можно использовать, например, в виде всплывающей подсказки. Разумеется, ответственность за локализацию других строк в пользовательском интерфейсе по-прежнему ложится на вас. Использование свойства Text в командах лишь позволяет уменьшить количество нуждающихся в переводе терминов.
+        // Для подключения своего кода необходимо добавить объект CommandBinding к самому элементу, который будет выполнять команду, или к любому его родителю (благодаря всплытию маршрутизируемых команд). Во всех классах, производных от UIElement (и ContentElement), имеется коллекция CommandBindings, в которой хранятся объекты типа CommandBinding. Поэтому объект CommandBinding для кнопки Help можно добавить прямо в корневой элемент Window окна About. В застраничном файле это делается так:
+        // this.CommandBindings.Add(new CommandBinding(ApplicationCommands.Help, HelpExecuted, HelpCanExecute));
+
+        // Выполнение команд с помощью жестов ввода
+        // Применение команды Help в простом окне About может показаться перебором – ведь было бы достаточно простого обработчика события Click. Но у команды, помимо локализованного текста, есть и еще одно достоинство: автоматическая привязка к комбинации клавиш.
+        // Можно связать с командой и свой жест ввода, добавив в коллекцию InputBindings подходящий объект KeyBinding и/или MouseBinding.
+        // Например, чтобы назначить клавишу F2 в качестве активатора команды Help, можно добавить следующее предложение в конструктор класса AboutDialog:
+        // this.InputBindings.Add(new KeyBinding(ApplicationCommands.Help, new KeyGesture(Key.F2)));
+        // Но при этом активировать команду Help будут обе клавиши: F1 и F2. Чтобы подавить подразумеваемую по умолчанию клавишу F1, нужно связать с ней специальную команду NotACommand:
+        // this.InputBindings.Add(new KeyBinding(ApplicationCommands.NotACommand, new KeyGesture(Key.F1)));
+        // Оба предложения можно представить и в XAML-разметке следующим образом:
+        //<Window.InputBindings>
+        //<KeyBinding Command="Help" Key="F2"/>
+        //<KeyBinding Command="NotACommand" Key="F1"/>
+        //</Window.InputBindings>
+
+        // Элементы управления со встроенными привязками к командам
+        // Простейший пример – элемент TextBox, в который встроены привязки к командам Cut, Copy и Paste для взаимодействия с буфером обмена, а также к командам Undo и Redo. Это означает не только то, что TextBox реагирует на стандартные комбинации Ctrl+X, Ctrl+C, Ctrl+V, Ctrl+Z и Ctrl+Y, но и что в этих действиях могут принимать участие дополнительные элементы. 
 
 
         // !!!

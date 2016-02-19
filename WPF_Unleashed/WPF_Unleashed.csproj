@@ -141,11 +141,31 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="2_WPFApplication_Creation\6_InputEvents\Command.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="2_WPFApplication_Creation\6_InputEvents\InputEvents.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="2_WPFApplication_Creation\6_InputEvents\IntegralCommand.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="2_WPFApplication_Creation\6_InputEvents\ManipulationEvents.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="2_WPFApplication_Creation\6_InputEvents\RoutedEvent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="2_WPFApplication_Creation\6_InputEvents\Spin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="2_WPFApplication_Creation\6_InputEvents\TouchEvents.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -222,11 +242,26 @@
     <Compile Include="2_WPFApplication_Creation\6_InputEvents\AttachedEvent.xaml.cs">
       <DependentUpon>AttachedEvent.xaml</DependentUpon>
     </Compile>
+    <Compile Include="2_WPFApplication_Creation\6_InputEvents\Command.xaml.cs">
+      <DependentUpon>Command.xaml</DependentUpon>
+    </Compile>
     <Compile Include="2_WPFApplication_Creation\6_InputEvents\InputEvents.xaml.cs">
       <DependentUpon>InputEvents.xaml</DependentUpon>
     </Compile>
+    <Compile Include="2_WPFApplication_Creation\6_InputEvents\IntegralCommand.xaml.cs">
+      <DependentUpon>IntegralCommand.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="2_WPFApplication_Creation\6_InputEvents\ManipulationEvents.xaml.cs">
+      <DependentUpon>ManipulationEvents.xaml</DependentUpon>
+    </Compile>
     <Compile Include="2_WPFApplication_Creation\6_InputEvents\RoutedEvent.xaml.cs">
       <DependentUpon>RoutedEvent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="2_WPFApplication_Creation\6_InputEvents\Spin.xaml.cs">
+      <DependentUpon>Spin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="2_WPFApplication_Creation\6_InputEvents\TouchEvents.xaml.cs">
+      <DependentUpon>TouchEvents.xaml</DependentUpon>
     </Compile>
     <Compile Include="2_WPFApplication_Creation\WPFApplicationCreation.xaml.cs">
       <DependentUpon>WPFApplicationCreation.xaml</DependentUpon>
@@ -269,6 +304,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="2_WPFApplication_Creation\6_InputEvents\fingerprint.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="2_WPFApplication_Creation\6_InputEvents\photo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="2_WPFApplication_Creation\6_InputEvents\arrow.png" />
+    <Resource Include="2_WPFApplication_Creation\6_InputEvents\prizewheel.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
