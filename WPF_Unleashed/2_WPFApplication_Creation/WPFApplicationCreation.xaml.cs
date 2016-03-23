@@ -41,5 +41,11 @@ namespace WPF_Unleashed._2_WPFApplication_Creation
             _6_InputEvents.InputEvents window = new _6_InputEvents.InputEvents();
             window.Show();
         }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            _7_ApplicationDeployment.ApplicationDeployment window = new _7_ApplicationDeployment.ApplicationDeployment();
+            window.Show();
+        }
     }
 }
