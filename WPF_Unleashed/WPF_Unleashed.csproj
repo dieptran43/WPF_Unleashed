@@ -173,6 +173,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="2_WPFApplication_Creation\7_ApplicationDeployment\GadgetWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="2_WPFApplication_Creation\WPFApplicationCreation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -269,6 +273,9 @@
     </Compile>
     <Compile Include="2_WPFApplication_Creation\7_ApplicationDeployment\ApplicationDeployment.xaml.cs">
       <DependentUpon>ApplicationDeployment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="2_WPFApplication_Creation\7_ApplicationDeployment\GadgetWindow.xaml.cs">
+      <DependentUpon>GadgetWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="2_WPFApplication_Creation\WPFApplicationCreation.xaml.cs">
       <DependentUpon>WPFApplicationCreation.xaml</DependentUpon>
