@@ -29,6 +29,32 @@ namespace WPF_Unleashed._2_WPFApplication_Creation._7_ApplicationDeployment
             GadgetWindow window = new GadgetWindow();
             window.Show();
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            TestWindow window = new TestWindow();
+            window.Show();
+        }
+
+        // Эта реализация Main эквивалентна предыдущей, только теперь создание экземпляра MainWindow и обращение к методу Show неявно производит объект Application. Отметим две особенности: во-первых, MainWindow идентифицируется только именем исходного XAML-файла в виде универсального идентификатора ресурса (URI), а во-вторых, вызывается другой перегруженный вариант метода Run, которому не передается экземпляр Window.
+        [STAThread]
+        private void CorrectMain()
+        {
+            Application app = new Application();
+            app.StartupUri = new Uri("MainWindow.xaml", UriKind.Relative);
+            app.Run();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            Navigation window = new Navigation();
+            window.Show();
+        }
+        // На самом деле имеющийся в VisualStudio шаблон для проектов WPFApplication определяет производный от Application класс Арр в XAML-файле и присваивает его свойству StartupUri ссылку на главное окно Window. В приложении PhotoGallery файл App.xam lвыглядит следующим образом:
+        // <Application x:Class="PhotoGallery.App"
+        // xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        // xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        // StartupUri="MainWindow.xaml"/>
     }
 
     // Стандартные приложения Windows

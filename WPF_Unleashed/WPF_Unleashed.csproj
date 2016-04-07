@@ -173,7 +173,31 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="2_WPFApplication_Creation\7_ApplicationDeployment\ChildWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="2_WPFApplication_Creation\7_ApplicationDeployment\DialogWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="2_WPFApplication_Creation\7_ApplicationDeployment\GadgetWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="2_WPFApplication_Creation\7_ApplicationDeployment\NavigationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="2_WPFApplication_Creation\7_ApplicationDeployment\NavigationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="2_WPFApplication_Creation\7_ApplicationDeployment\PhotoPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="2_WPFApplication_Creation\7_ApplicationDeployment\TestWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -274,8 +298,26 @@
     <Compile Include="2_WPFApplication_Creation\7_ApplicationDeployment\ApplicationDeployment.xaml.cs">
       <DependentUpon>ApplicationDeployment.xaml</DependentUpon>
     </Compile>
+    <Compile Include="2_WPFApplication_Creation\7_ApplicationDeployment\ChildWindow.xaml.cs">
+      <DependentUpon>ChildWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="2_WPFApplication_Creation\7_ApplicationDeployment\DialogWindow.xaml.cs">
+      <DependentUpon>DialogWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="2_WPFApplication_Creation\7_ApplicationDeployment\GadgetWindow.xaml.cs">
       <DependentUpon>GadgetWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="2_WPFApplication_Creation\7_ApplicationDeployment\NavigationWindow.xaml.cs">
+      <DependentUpon>NavigationWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="2_WPFApplication_Creation\7_ApplicationDeployment\NavigationPage.xaml.cs">
+      <DependentUpon>NavigationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="2_WPFApplication_Creation\7_ApplicationDeployment\PhotoPage.xaml.cs">
+      <DependentUpon>PhotoPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="2_WPFApplication_Creation\7_ApplicationDeployment\TestWindow.xaml.cs">
+      <DependentUpon>TestWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="2_WPFApplication_Creation\WPFApplicationCreation.xaml.cs">
       <DependentUpon>WPFApplicationCreation.xaml</DependentUpon>
