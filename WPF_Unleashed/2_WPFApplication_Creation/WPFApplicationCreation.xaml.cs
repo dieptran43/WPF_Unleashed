@@ -47,5 +47,11 @@ namespace WPF_Unleashed._2_WPFApplication_Creation
             _7_ApplicationDeployment.ApplicationDeployment window = new _7_ApplicationDeployment.ApplicationDeployment();
             window.Show();
         }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            _8_Windows7Features.Windows7Features window = new _8_Windows7Features.Windows7Features();
+            window.Show();
+        }
     }
 }

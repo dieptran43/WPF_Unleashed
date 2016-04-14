@@ -9,6 +9,7 @@
         <Button Content="6. Input Events" HorizontalAlignment="Left" Margin="10,85,0,0" VerticalAlignment="Top" Width="85" Click="Button_Click_2"/>
         <Button Content="7. Application Deployment
                 " HorizontalAlignment="Left" Margin="10,121,0,0" VerticalAlignment="Top" Width="152" Click="Button_Click_3"/>
+        <Button Content="8. Windows 7 features" HorizontalAlignment="Left" Margin="10,157,0,0" VerticalAlignment="Top" Width="129" Click="Button_Click_4"/>
 
     </Grid>
 </Window>
