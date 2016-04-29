@@ -3,8 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <Button Content="1. Basic Information" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="118" Click="Button_Click"/>
+        <Button Content="1. Basic Information" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="109" Click="Button_Click"/>
         <Button Content="2. WPF Application creation
                 " HorizontalAlignment="Left" Margin="10,37,0,0" VerticalAlignment="Top" Width="163" Click="Button_Click_1"/>
+        <Button Content="3. Control Elements" HorizontalAlignment="Left" Margin="10,64,0,0" VerticalAlignment="Top" Width="109" Click="Button_Click_2"/>
     </Grid>
 </Window>

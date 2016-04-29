@@ -38,5 +38,12 @@ namespace WPF_Unleashed
             window.Show();
             this.Close();
         }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            _3_Control_Elements.ControlElements window = new _3_Control_Elements.ControlElements();
+            window.Show();
+            this.Close();
+        }
     }
 }
