@@ -26,14 +26,16 @@ namespace WPF_Unleashed._3_Control_Elements._10_ManyChildElements
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            dataGrid.ItemsSource = new Record[]
-            {
-                new Record { FirstName="Adam", LastName="Nathan", Website=
-                new Uri("http://adamnathan.net"), Gender=Gender.Male },
-                new Record { FirstName="Bill", LastName="Gates", Website=
-                new Uri("http://twitter.com/billgates"), Gender=Gender.Male,
-                IsBillionaire=true }
-            };
+            dataGrid.ItemsSource = new List<Record>(
+                new Record[]
+                {
+                    new Record { FirstName="Adam", LastName="Nathan", Website=
+                    new Uri("http://adamnathan.net"), Gender=Gender.Male },
+                    new Record { FirstName="Bill", LastName="Gates", Website=
+                    new Uri("http://twitter.com/billgates"), Gender=Gender.Male,
+                    IsBillionaire=true }
+                }
+            );
         }
     }
 

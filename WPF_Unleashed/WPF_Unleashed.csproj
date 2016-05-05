@@ -229,11 +229,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="3_Control_Elements\10_ManyChildElements\Menu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="3_Control_Elements\10_ManyChildElements\Selectors.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="3_Control_Elements\10_ManyChildElements\StatusBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="3_Control_Elements\10_ManyChildElements\TabControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="3_Control_Elements\10_ManyChildElements\ToolBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="3_Control_Elements\10_ManyChildElements\TreeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -392,11 +408,23 @@
     <Compile Include="3_Control_Elements\10_ManyChildElements\ManyChildElements.xaml.cs">
       <DependentUpon>ManyChildElements.xaml</DependentUpon>
     </Compile>
+    <Compile Include="3_Control_Elements\10_ManyChildElements\Menu.xaml.cs">
+      <DependentUpon>Menu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="3_Control_Elements\10_ManyChildElements\Selectors.xaml.cs">
       <DependentUpon>Selectors.xaml</DependentUpon>
     </Compile>
+    <Compile Include="3_Control_Elements\10_ManyChildElements\StatusBar.xaml.cs">
+      <DependentUpon>StatusBar.xaml</DependentUpon>
+    </Compile>
     <Compile Include="3_Control_Elements\10_ManyChildElements\TabControl.xaml.cs">
       <DependentUpon>TabControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="3_Control_Elements\10_ManyChildElements\ToolBar.xaml.cs">
+      <DependentUpon>ToolBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="3_Control_Elements\10_ManyChildElements\TreeView.xaml.cs">
+      <DependentUpon>TreeView.xaml</DependentUpon>
     </Compile>
     <Compile Include="3_Control_Elements\9_1ChildElements\Button.xaml.cs">
       <DependentUpon>Button.xaml</DependentUpon>

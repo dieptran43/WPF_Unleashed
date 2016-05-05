@@ -48,6 +48,10 @@
         </StackPanel>
         <Grid>
             <Button Content="Selectors" HorizontalAlignment="Left" Margin="10,251,0,0" VerticalAlignment="Top" Width="59" Click="Button_Click"/>
+            <Button Content="Menu" HorizontalAlignment="Left" Margin="10,278,0,0" VerticalAlignment="Top" Width="59" Click="Button_Click_1"/>
+            <Button Content="TreeView" HorizontalAlignment="Left" Margin="10,305,0,0" VerticalAlignment="Top" Width="59" Click="Button_Click_2"/>
+            <Button Content="ToolBar" HorizontalAlignment="Left" Margin="10,332,0,0" VerticalAlignment="Top" Width="59" Click="Button_Click_3"/>
+            <Button Content="StatusBar" HorizontalAlignment="Left" Margin="10,359,0,0" VerticalAlignment="Top" Width="59" Click="Button_Click_4"/>
         </Grid>
     </Grid>
 </Window>
