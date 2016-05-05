@@ -137,3 +137,11 @@ WPF_Unleashed/obj/Debug/3_Control_Elements/9_1ChildElements/Button.g.i.cs
 WPF_Unleashed/obj/Debug/3_Control_Elements/9_1ChildElements/GroupBox.g.i.cs
 WPF_Unleashed/obj/Debug/3_Control_Elements/9_1ChildElements/Label.g.i.cs
 WPF_Unleashed/obj/Debug/3_Control_Elements/ControlElements.g.i.cs
+WPF_Unleashed/obj/Debug/3_Control_Elements/10_ManyChildElements/ComboBox.g.i.cs
+WPF_Unleashed/obj/Debug/3_Control_Elements/10_ManyChildElements/DataGrid.g.i.cs
+WPF_Unleashed/obj/Debug/3_Control_Elements/10_ManyChildElements/ListBox.g.i.cs
+WPF_Unleashed/obj/Debug/3_Control_Elements/10_ManyChildElements/ListView.g.i.cs
+WPF_Unleashed/obj/Debug/3_Control_Elements/10_ManyChildElements/ManyChildElements.g.i.cs
+WPF_Unleashed/obj/Debug/3_Control_Elements/10_ManyChildElements/Selectors.g.i.cs
+WPF_Unleashed/obj/Debug/3_Control_Elements/10_ManyChildElements/TabControl.g.i.cs
+WPF_Unleashed/obj/Debug/GeneratedInternalTypeHelper.g.i.cs
