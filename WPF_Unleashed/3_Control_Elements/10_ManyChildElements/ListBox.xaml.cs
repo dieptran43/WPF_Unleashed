@@ -11,29 +11,26 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.ComponentModel;
 
-namespace WPF_Unleashed._3_Control_Elements
+namespace WPF_Unleashed._3_Control_Elements._10_ManyChildElements
 {
     /// <summary>
-    /// Interaction logic for ControlElements.xaml
+    /// Interaction logic for ListBox.xaml
     /// </summary>
-    public partial class ControlElements : Window
+    public partial class ListBox : Window
     {
-        public ControlElements()
+        public ListBox()
         {
             InitializeComponent();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            _9_1ChildElements.OneChildElements window = new _9_1ChildElements.OneChildElements();
-            window.Show();
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            _10_ManyChildElements.ManyChildElements window = new _10_ManyChildElements.ManyChildElements();
-            window.Show();
+            // Сначала очищаем имеющиеся описания сортировки
+            myListBox.Items.SortDescriptions.Clear();
+            // Затем сортируем по свойству Content
+            myListBox.Items.SortDescriptions.Add(new SortDescription("Content", ListSortDirection.Descending));
         }
     }
 }

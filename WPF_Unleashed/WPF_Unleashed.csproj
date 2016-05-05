@@ -209,6 +209,34 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="3_Control_Elements\10_ManyChildElements\ComboBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="3_Control_Elements\10_ManyChildElements\DataGrid.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="3_Control_Elements\10_ManyChildElements\ListBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="3_Control_Elements\10_ManyChildElements\ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="3_Control_Elements\10_ManyChildElements\ManyChildElements.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="3_Control_Elements\10_ManyChildElements\Selectors.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="3_Control_Elements\10_ManyChildElements\TabControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="3_Control_Elements\9_1ChildElements\Button.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -348,6 +376,27 @@
     </Compile>
     <Compile Include="2_WPFApplication_Creation\WPFApplicationCreation.xaml.cs">
       <DependentUpon>WPFApplicationCreation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="3_Control_Elements\10_ManyChildElements\ComboBox.xaml.cs">
+      <DependentUpon>ComboBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="3_Control_Elements\10_ManyChildElements\DataGrid.xaml.cs">
+      <DependentUpon>DataGrid.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="3_Control_Elements\10_ManyChildElements\ListBox.xaml.cs">
+      <DependentUpon>ListBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="3_Control_Elements\10_ManyChildElements\ListView.xaml.cs">
+      <DependentUpon>ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="3_Control_Elements\10_ManyChildElements\ManyChildElements.xaml.cs">
+      <DependentUpon>ManyChildElements.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="3_Control_Elements\10_ManyChildElements\Selectors.xaml.cs">
+      <DependentUpon>Selectors.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="3_Control_Elements\10_ManyChildElements\TabControl.xaml.cs">
+      <DependentUpon>TabControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="3_Control_Elements\9_1ChildElements\Button.xaml.cs">
       <DependentUpon>Button.xaml</DependentUpon>

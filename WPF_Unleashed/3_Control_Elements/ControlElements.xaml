@@ -4,5 +4,6 @@
         Title="ControlElements" Height="300" Width="300">
     <Grid>
         <Button Content="9. One Child Control Elements" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="167" Click="Button_Click"/>
+        <Button Content="10. Many Child Control Elements" HorizontalAlignment="Left" Margin="10,37,0,0" VerticalAlignment="Top" Width="179" Click="Button_Click_1"/>
     </Grid>
 </Window>
