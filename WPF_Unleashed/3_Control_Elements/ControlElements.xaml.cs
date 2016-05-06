@@ -35,5 +35,11 @@ namespace WPF_Unleashed._3_Control_Elements
             _10_ManyChildElements.ManyChildElements window = new _10_ManyChildElements.ManyChildElements();
             window.Show();
         }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            _11_ImageTextOther.ImageTextOther window = new _11_ImageTextOther.ImageTextOther();
+            window.Show();
+        }
     }
 }

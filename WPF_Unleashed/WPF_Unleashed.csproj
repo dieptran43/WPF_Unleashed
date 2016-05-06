@@ -253,6 +253,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="3_Control_Elements\11_ImageTextOther\Image.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="3_Control_Elements\11_ImageTextOther\ImageTextOther.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="3_Control_Elements\9_1ChildElements\Button.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -425,6 +433,12 @@
     </Compile>
     <Compile Include="3_Control_Elements\10_ManyChildElements\TreeView.xaml.cs">
       <DependentUpon>TreeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="3_Control_Elements\11_ImageTextOther\Image.xaml.cs">
+      <DependentUpon>Image.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="3_Control_Elements\11_ImageTextOther\ImageTextOther.xaml.cs">
+      <DependentUpon>ImageTextOther.xaml</DependentUpon>
     </Compile>
     <Compile Include="3_Control_Elements\9_1ChildElements\Button.xaml.cs">
       <DependentUpon>Button.xaml</DependentUpon>
