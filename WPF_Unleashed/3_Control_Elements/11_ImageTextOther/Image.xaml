@@ -3,6 +3,22 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Image" Height="300" Width="300">
     <Grid>
-        
+        <StackPanel Orientation="Horizontal">
+            <Image RenderOptions.BitmapScalingMode="NearestNeighbor" Source="Images/image.jpg"/>
+        <!-- Нормальное изображение, формат пикселов Pbgra32: -->
+        <Image Source="Images/image.jpg" />
+        <!-- Полутоновое изображение: -->
+        <Image>
+            <Image.Source>
+                <FormatConvertedBitmap Source="Images/image.jpg" DestinationFormat="Gray32Float" />
+            </Image.Source>
+        </Image>
+        <!-- Черно-белое изображение: -->
+        <Image>
+            <Image.Source>
+                <FormatConvertedBitmap Source="Images/image.jpg" DestinationFormat="BlackWhite" />
+            </Image.Source>
+        </Image>
+        </StackPanel>
     </Grid>
 </Window>

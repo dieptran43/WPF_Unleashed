@@ -3,6 +3,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="ImageTextOther" Height="300" Width="300">
     <Grid>
-        
+        <Button Content="Image" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <Button Content="Text and Ink" HorizontalAlignment="Left" Margin="10,37,0,0" VerticalAlignment="Top" Width="84" Click="Button_Click_1"/>
+        <Button Content="Documents" HorizontalAlignment="Left" Margin="10,64,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_2"/>
+        <Button Content="Spans" HorizontalAlignment="Left" Margin="10,91,0,0" VerticalAlignment="Top" Width="49" Click="Button_Click_3"/>
+        <Button Content="Comments" HorizontalAlignment="Left" Margin="10,118,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_4"/>
+        <Button Content="Range Controls" HorizontalAlignment="Left" Margin="10,145,0,0" VerticalAlignment="Top" Width="97" Click="Button_Click_5"/>
+        <Button Content="Calendar Controls" HorizontalAlignment="Left" Margin="10,172,0,0" VerticalAlignment="Top" Width="109" Click="Button_Click_6"/>
     </Grid>
 </Window>

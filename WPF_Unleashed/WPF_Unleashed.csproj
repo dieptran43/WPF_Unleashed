@@ -253,11 +253,35 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="3_Control_Elements\11_ImageTextOther\CalendarControls.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="3_Control_Elements\11_ImageTextOther\Comments.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="3_Control_Elements\11_ImageTextOther\Documents.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="3_Control_Elements\11_ImageTextOther\Image.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="3_Control_Elements\11_ImageTextOther\ImageTextOther.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="3_Control_Elements\11_ImageTextOther\RangeControls.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="3_Control_Elements\11_ImageTextOther\Spans.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="3_Control_Elements\11_ImageTextOther\TextInk.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -434,11 +458,29 @@
     <Compile Include="3_Control_Elements\10_ManyChildElements\TreeView.xaml.cs">
       <DependentUpon>TreeView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="3_Control_Elements\11_ImageTextOther\CalendarControls.xaml.cs">
+      <DependentUpon>CalendarControls.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="3_Control_Elements\11_ImageTextOther\Comments.xaml.cs">
+      <DependentUpon>Comments.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="3_Control_Elements\11_ImageTextOther\Documents.xaml.cs">
+      <DependentUpon>Documents.xaml</DependentUpon>
+    </Compile>
     <Compile Include="3_Control_Elements\11_ImageTextOther\Image.xaml.cs">
       <DependentUpon>Image.xaml</DependentUpon>
     </Compile>
     <Compile Include="3_Control_Elements\11_ImageTextOther\ImageTextOther.xaml.cs">
       <DependentUpon>ImageTextOther.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="3_Control_Elements\11_ImageTextOther\RangeControls.xaml.cs">
+      <DependentUpon>RangeControls.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="3_Control_Elements\11_ImageTextOther\Spans.xaml.cs">
+      <DependentUpon>Spans.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="3_Control_Elements\11_ImageTextOther\TextInk.xaml.cs">
+      <DependentUpon>TextInk.xaml</DependentUpon>
     </Compile>
     <Compile Include="3_Control_Elements\9_1ChildElements\Button.xaml.cs">
       <DependentUpon>Button.xaml</DependentUpon>
@@ -503,6 +545,15 @@
   <ItemGroup>
     <Resource Include="2_WPFApplication_Creation\6_InputEvents\arrow.png" />
     <Resource Include="2_WPFApplication_Creation\6_InputEvents\prizewheel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="3_Control_Elements\11_ImageTextOther\Images\diagram.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="3_Control_Elements\11_ImageTextOther\Images\image.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="3_Control_Elements\11_ImageTextOther\Images\wpf.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
