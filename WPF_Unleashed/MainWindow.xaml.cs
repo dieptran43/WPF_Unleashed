@@ -45,5 +45,12 @@ namespace WPF_Unleashed
             window.Show();
             this.Close();
         }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            Testing.Testing window = new Testing.Testing();
+            window.Show();
+            this.Close();
+        }
     }
 }
