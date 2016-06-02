@@ -53,6 +53,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Testing\Panel\CoolPanel.xaml.cs">
+      <DependentUpon>CoolPanel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Testing\Panel\DockPanel.xaml.cs">
       <DependentUpon>DockPanel.xaml</DependentUpon>
     </Compile>
@@ -76,6 +79,9 @@
     </Compile>
     <Compile Include="Testing\Panel\StackPanel.xaml.cs">
       <DependentUpon>StackPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Testing\Panel\ViewBox.xaml.cs">
+      <DependentUpon>ViewBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="Testing\Panel\WrapPanel.xaml.cs">
       <DependentUpon>WrapPanel.xaml</DependentUpon>
@@ -538,6 +544,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Testing\Panel\CoolPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Testing\Panel\DockPanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -567,6 +577,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Testing\Panel\StackPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Testing\Panel\ViewBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -624,6 +638,13 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="3_Control_Elements\11_ImageTextOther\Images\wpf.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Testing\Panel\Images\iconVSproperties.bmp" />
+    <Resource Include="Testing\Panel\Images\iconVSrefresh.bmp" />
+    <Resource Include="Testing\Panel\Images\iconVSshowall.bmp" />
+    <Resource Include="Testing\Panel\Images\pin.gif" />
+    <Resource Include="Testing\Panel\Images\pinHorizontal.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -71,5 +71,17 @@ namespace WPF_Unleashed.Testing.Panel
             Panel.ScrollViewer window = new Panel.ScrollViewer();
             window.Show();
         }
+
+        private void Button_Click_8(object sender, RoutedEventArgs e)
+        {
+            Panel.ViewBox window = new Panel.ViewBox();
+            window.Show();
+        }
+
+        private void Button_Click_9(object sender, RoutedEventArgs e)
+        {
+            CoolPanel window = new CoolPanel();
+            window.Show();
+        }
     }
 }
