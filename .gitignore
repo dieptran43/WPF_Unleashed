@@ -170,3 +170,10 @@ WPF_Unleashed/obj/Debug/Testing/Panel/WrapPanel.g.i.cs
 WPF_Unleashed/obj/Debug/Testing/Testing.g.i.cs
 WPF_Unleashed/obj/Debug/Testing/Panel/CoolPanel.g.i.cs
 WPF_Unleashed/obj/Debug/Testing/Panel/ViewBox.g.i.cs
+WPF_Unleashed/obj/Debug/Testing/Events/AboutDialog.g.i.cs
+WPF_Unleashed/obj/Debug/Testing/Events/AttachedEvent.g.i.cs
+WPF_Unleashed/obj/Debug/Testing/Events/CommandControl.g.i.cs
+WPF_Unleashed/obj/Debug/Testing/Events/Commands.g.i.cs
+WPF_Unleashed/obj/Debug/Testing/Events/Dragging.g.i.cs
+WPF_Unleashed/obj/Debug/Testing/Events/Events.g.i.cs
+WPF_Unleashed/obj/Debug/Testing/MyApp.g.i.cs

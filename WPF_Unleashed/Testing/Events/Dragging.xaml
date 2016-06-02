@@ -1,0 +1,22 @@
+﻿<Window x:Class="WPF_Unleashed.Testing.Events.Dragging"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Dragging" Height="300" Width="300">
+    <Grid>
+        <Canvas AllowDrop="True" Drop="window_Drop">
+            <Label Name="lbl2" Canvas.Top="100" Canvas.Left="10" Padding="10"
+               BorderBrush="LightBlue" BorderThickness="2" MouseDown="lbl1_MouseDown">Всем пока (</Label>
+            <Label Name="lbl1" Canvas.Top="38" Canvas.Left="10" Padding="10"
+               BorderBrush="LightBlue" BorderThickness="2" MouseDown="lbl1_MouseDown">Всем привет!</Label>
+            <Border Canvas.Top="75" Canvas.Left="150" BorderBrush="Black" BorderThickness="2">
+                <TextBlock MinWidth="100" MinHeight="30" FontSize="16" 
+                       Name="txtTarget" AllowDrop="True" Drop="txtTarget_Drop"></TextBlock>
+            </Border>
+            <Ellipse Height="50" Width="50" Fill="Green"
+                 MouseMove="ellipse_MouseMove"
+                 AllowDrop="True"
+                 DragEnter="ellipse_DragEnter" DragLeave="ellipse_DragLeave"
+                 DragOver="ellipse_DragOver" Drop="ellipse_Drop" Canvas.Left="10" Canvas.Top="145" />
+        </Canvas>
+    </Grid>
+</Window>

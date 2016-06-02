@@ -30,6 +30,18 @@ namespace WPF_Unleashed.Testing
             window.Show();
         }
 
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Events.Events window = new Events.Events();
+            window.Show();
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            MyApp window = new MyApp();
+            window.Show();
+        }
+
 
         // 5 Панели
         // StackPanel
@@ -110,12 +122,79 @@ namespace WPF_Unleashed.Testing
         // - Tunneling – событие сначала возникает в корне дерева, а потом опускается вниз по дереву, заново возникая в каждом элементе на пути к источнику, включая его самого (если туннелирование не будет прервано по дороге в результате пометки события как обработанного)
         // - Bubbling – событие сначала возникает в элементе-источнике, а затем поднимается вверх по дереву, заново возникая в каждом элементе на пути к корню, включая сам корень (если всплытие не будет прервано по дороге в результате пометки события как обработанного)
         // - Direct – событие возникает только в элементе-источнике. Точно так же ведут себя обычные события .NET; различие лишь в том, что к маршрутизируемому событию применяются и другие механизмы, в частности триггеры событий
+        // Сигнатуры обработчиков маршрутизируемых событий устроены так же, как сигнатуры всех обработчиков событий в .NET: первый параметр – объект типа System.Object, который обычно называют sender, второй – экземпляр класса, производного от System.EventArgs.
+        // Параметр e является объектом класса RoutedEventArgs – подкласса EventArgs, обладающего следующими полезными свойствами:
+        // - Source – элемент логического дерева, первоначально сгенерировавший событие.
+        // - OriginalSource – элемент визуального дерева, первоначально сгенерировавший событие (например, в случае стандартной кнопки Button это будет дочерний элемент TextBlock или ButtonChrome). 
+        // - Handled – булевский флаг, которому можно присвоить значение true и тем самым пометить, что событие обработано. Именно таким способом прерывается туннелирование и всплытие.
+        // - RoutedEvent – сам объект маршрутизированного события (например, Button. ClickEvent), который может быть полезен для различения событий в случае, когда один и тот же обработчик используется для обработки разных событий.
+
+        // Маршрутизируемые события в действии
+        // Туннелируемые события легко распознать, потому что по принятому соглашению их имена начинаются со слова Preview. Такое событие – также по соглашению – генерируется непосредственно перед парным ему всплывающим.
+        // Например, туннелируемое событие PreviewMouseMove генерируется перед всплывающим событием MouseMove.
+        // Идея, стоящая за такими парами событий, заключается в том, чтобы дать элементам возможность отменить или иным способом модифицировать событие, которое еще только произойдет.
+        // - Window не получает событие MouseRightButtonDown, если щелкнуть по любому элементу списка ListBoxItem. Дело в том, что ListBoxItem сам обрабатывает это событие, равно как и MouseLeftButtonDown (и прерывает всплытие), – это нужно ему для реализации выбора элементов.
+        // - Window получает событие MouseRightButtonDown при щелчке по кнопке Button, но никаких изменений во внешнем виде рамкине происходит. Это объясняется структурой стандартного визуального дерева Button. В отличие от элементов Window, Label, ListBox, ListBoxItem и StatusBar, в визуальном дереве Button нет элемента Border.
+        // Присоединенные события
+
+        // Перетаскивание
+        // Во всех подклассах UIElement определены события для работы с перетаскиванием:
+        // - DragEnter, DragOver, DragLeave, а также PreviewDragEnter, PreviewDragOver и PreviewDragLeave
+        // - Drop и PreviewDrop
+        // - QueryContinueDrag и PreviewQueryContinueDrag
+        // Это перетаскивание элемента в буфер обмена и бросание содержимого буфера на элемент в стиле Win32, а не перетаскивание и бросание самих элементов.
+        // Элемент может принять участие в перетаскивании, установив значение true для свойства AllowDrop.
+        // Обработчикам событий из первых двух наборов передается объект типа DragEventArgs, содержащий следующие свойства и методы:
+        // - GetPosition – такой же метод, как в классе MouseEventArgs
+        // - Data – свойство типа IDataObject, представляющее перетаскиваемый или бросаемый объект буфера обмена Win32
+        // - Effects и AllowedEffects – битовое перечисление DragDropEffects, допускающее произвольную комбинацию флагов Copy, Move, Link, Scroll, All и None
+        // - KeyStates – еще одно битовое перечисление (DragDropKeyStates), показывающее, какие кнопки мыши или клавиши-модификаторы были нажаты во время перетаскивания или бросания: LeftMouseButton, RightMouseButton, MiddleMouseButton, ShiftKey, ControlKey, AltKey или None
+        // События QueryContinueDrag и PreviewQueryContinueDrag генерируются, если во время перетаскивания изменяется состояние клавиатуры или какой-нибудь кнопки мыши.
+        // Это позволяет обработчику без труда отменить всю операцию.
+        // Обработчикам этих событий передается объект класса QueryContinueDragEventArgs, имеющий следующие свойства:
+        // - KeyStates – аналогично одноименному свойству класса DragEventArgs
+        // - EscapePressed – отдельное булевское свойство, показывающее, была ли нажата клавиша Esc
+        // Action – свойство, которое обработчик может установить, чтобы определить судьбу операции перетаскивания; принадлежит перечислению DragAction и принимает значение Continue, Drop или Cancel
+        
+        // Захват мыши
+        // К счастью, WPF позволяет любому элементу UIElement в любой момент захватить или освободить мышь.
+        // Когда элемент захватил мышь, он получает все события мыши, даже если указатель оказывается вне занимаемой им области.
+        // После освобождения мыши поведение событий возвращается в нормальное русло. Для захвата и освобождения мыши предназначены два метода классаUIElement: CaptureMouse и ReleaseMouseCapture.
+        // И, разумеется, есть ряд свойств и событий, сообщающих о состоянии захвата мыши, точнее, свойства IsMouseCaptured и IsMouseCaptureWithin и события GotMouseCapture, LostMouseCapture, IsMouseCaptureChanged и IsMouseCaptureWithinChanged.
+        // Поэтому для реализации перетаскивания необходимо захватить мышь в обработчике MouseLeftButtonDown и освободить ее в обработчике MouseLeftButtonUp.
+
+        // Команды
+        // Мощь механизма команд основывается на трех основных особенностях:
+        // - В WPF определено много встроенных команд.
+        // - В команды встроена автоматическая поддержка жестов ввода (например, сочетаний клавиш).
+        // - Встроенное поведение некоторых элементов управления WPF уже ориентировано на те или иные команды.
+
+        // Встроенные команды
+        // Командой называется любой объект, реализующий интерфейс ICommand (из пространства имен System.Windows.Input), в котором объявлены три простых члена:
+        // - Execute – метод, который выполняет характерную для команды логику
+        // - CanExecute – метод, который возвращает true, если команда активирована, и false, если она деактивирована
+        // - CanExecuteChanged – событие, которое генерируется при изменении значения CanExecute
+        // Встроенные в WPF команды доступны в виде статических свойств пяти разных классов:
+        // - ApplicationCommands – Close, Copy, Cut, Delete, Find, Help, New, Open, Paste, Print,
+        // PrintPreview, Properties, Redo, Replace, Save, SaveAs, SelectAll, Stop, Undo и др.
+        // - ComponentCommands – MoveDown, MoveLeft, MoveRight, MoveUp, ScrollByLine, ScrollPageDown,
+        // ScrollPageLeft, ScrollPageRight, ScrollPageUp, SelectToEnd, SelectToHome,
+        // SelectToPageDown, SelectToPageUp и др.
+        // - MediaCommands – ChannelDown, ChannelUp, DecreaseVolume, FastForward, IncreaseVolume,
+        // MuteVolume, NextTrack, Pause, Play, PreviousTrack, Record, Rewind, Select, Stop и др.
+        // - NavigationCommands – BrowseBack, BrowseForward, BrowseHome, BrowseStop, Favorites,
+        // FirstPage, GoToPage, LastPage, NextPage, PreviousPage, Refresh, Search, Zoom и др.
+        // - EditingCommands – AlignCenter, AlignJustify, AlignLeft, AlignRight, CorrectSpellingError,
+        // DecreaseFontSize, DecreaseIndentation, EnterLineBreak, EnterParagraphBreak,
+        // IgnoreSpellingError, IncreaseFontSize, IncreaseIndentation, MoveDownByLine,
+        // MoveDownByPage, MoveDownByParagraph, MoveLeftByCharacter, MoveLeftByWord,
+        // MoveRightByCharacter, MoveRightByWord и др.
+
+        // Элементы управления со встроенными привязками к командам
 
 
         // !!!
-        // повторить часть 4, разобрать примеры
-        // попрактиковаться с панелями с части 5
         // продолжить разбор части 6
-        // написать программу, используя материал с глав 4-6.
+        // написать программу, используя материал с части 2.
     }
 }
