@@ -48,6 +48,15 @@ namespace WPF_Unleashed.Testing
             window.Show();
         }
 
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            OneChildControls.OneChildControls window = new OneChildControls.OneChildControls();
+            window.Show();
+        }
+
+
+        // 4 Задание размера, положения и преобразований элементов
+
 
         // 5 Панели
         // StackPanel
@@ -365,6 +374,13 @@ namespace WPF_Unleashed.Testing
 
 
         // 8 Особенности Windows 7
+        // В .NET для проверки версии операционной системы можно использовать свойство System.Environment.OSVersion. 
+        // if (System.Environment.OSVersion.Version.Major >= 6)
+        // Windows Vista или более поздняя, используем TaskDialog
+        // else
+        // Младше Windows Vista, используем MessageBox
 
+
+        // 9 Однодетные элементы управления
     }
 }

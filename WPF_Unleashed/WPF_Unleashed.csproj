@@ -86,6 +86,9 @@
     <Compile Include="Testing\MyApp.xaml.cs">
       <DependentUpon>MyApp.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Testing\OneChildControls\OneChildControls.xaml.cs">
+      <DependentUpon>OneChildControls.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Testing\Panel\CoolPanel.xaml.cs">
       <DependentUpon>CoolPanel.xaml</DependentUpon>
     </Compile>
@@ -618,6 +621,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Testing\MyApp.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Testing\OneChildControls\OneChildControls.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
