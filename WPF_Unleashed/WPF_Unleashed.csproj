@@ -53,6 +53,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Testing\Deployment\Deployment.xaml.cs">
+      <DependentUpon>Deployment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Testing\Deployment\MyProperties.xaml.cs">
+      <DependentUpon>MyProperties.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Testing\Deployment\Navigation.xaml.cs">
+      <DependentUpon>Navigation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Testing\Deployment\TheirProperties.xaml.cs">
+      <DependentUpon>TheirProperties.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Testing\Events\AboutDialog.xaml.cs">
       <DependentUpon>AboutDialog.xaml</DependentUpon>
     </Compile>
@@ -565,6 +577,22 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Testing\Deployment\Deployment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Testing\Deployment\MyProperties.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Testing\Deployment\Navigation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Testing\Deployment\TheirProperties.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Testing\Events\AboutDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -695,6 +723,7 @@
     <Resource Include="Testing\Panel\Images\pin.gif" />
     <Resource Include="Testing\Panel\Images\pinHorizontal.gif" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

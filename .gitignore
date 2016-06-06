@@ -177,3 +177,7 @@ WPF_Unleashed/obj/Debug/Testing/Events/Commands.g.i.cs
 WPF_Unleashed/obj/Debug/Testing/Events/Dragging.g.i.cs
 WPF_Unleashed/obj/Debug/Testing/Events/Events.g.i.cs
 WPF_Unleashed/obj/Debug/Testing/MyApp.g.i.cs
+WPF_Unleashed/obj/Debug/Testing/Deployment/Deployment.g.i.cs
+WPF_Unleashed/obj/Debug/Testing/Deployment/MyProperties.g.i.cs
+WPF_Unleashed/obj/Debug/Testing/Deployment/Navigation.g.i.cs
+WPF_Unleashed/obj/Debug/Testing/Deployment/TheirProperties.g.i.cs

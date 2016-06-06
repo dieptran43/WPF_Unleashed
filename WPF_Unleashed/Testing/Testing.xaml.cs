@@ -42,6 +42,12 @@ namespace WPF_Unleashed.Testing
             window.Show();
         }
 
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            Deployment.Deployment window = new Deployment.Deployment();
+            window.Show();
+        }
+
 
         // 5 Панели
         // StackPanel
@@ -193,8 +199,172 @@ namespace WPF_Unleashed.Testing
         // Элементы управления со встроенными привязками к командам
 
 
-        // !!!
-        // продолжить разбор части 6
-        // написать программу, используя материал с части 2.
+        // 7 Структурирование и развертывание приложения
+        
+        // Класс Window
+        // Если некое окно хочет сделать другое окно дочерним, оно должно записать в свойство Owner (типа Window) последнего ссылку на себя, но только после того, как родитель уже был показан на экране.
+        // Перебрать дочерние окна позволяет доступное только для чтения свойство OwnedWindows.
+        // По принятому соглашению управляемые классы содержат защищенные методы OnEventName, по одному для каждого события
+
+        // Класс Application
+        // Метод Application.Run
+        // [STAThread]
+        // public static void Main()
+        // {
+        //     Application app = new Application();
+        //     MainWindow window = new MainWindow();
+        //     window.Show();
+        //     app.Run(window);
+        // }
+        // В классе Application есть также очень полезное свойство-коллекция Properties.
+        // Как и состояние приложенияили сеанса в ASP.NET, это словарь, предназначенный для удобного хранения произвольных данных(в виде пар ключ/значение), общих для различных окон или других объектов.
+        // Например, в приложении Photo Gallery так хранится имя файла текущей выбранной фотографии:
+        // myApplication.Properties["CurrentPhotoFilename"] = filename;
+        // А получить к нему доступ можно следующим образом:
+        // string filename = myApplication.Properties["CurrentPhotoFilename"] as string;
+        // Как в WPF создать приложение, которое может существовать в единственном экземпляре?
+        // bool mutexIsNew;
+        // using (System.Threading.Mutex m = new System.Threading.Mutex(true, uniqueName, out mutexIsNew))
+        // {
+        // if (mutexIsNew)
+        // Это первый экземпляр, запускаем приложение.
+        // else
+        // Экземпляр уже работает. Выходим!
+        // }
+
+        // Диалоговые окна
+
+        // Сохранение и восстановление состояния приложения
+
+        // Страницы и их навигационные контейнеры
+        // Элементы Page могут располагаться в одном из двух встроенных навигационных контейнеров: NavigationWindow или Frame.
+        // По умолчанию вдоль верхнего края NavigationWindow располагается панель с кнопками Назад/Вперед, а во фрейме ее нет, но в обоих случаях панель можно добавить или убрать с помощью свойства ShowsNavigationUI, содержащегося внутри страницы Page.
+        // Кроме того, в классе NavigationWindow имеется свойство ShowsNavigationUI, а в классе Frame – свойство NavigationUIVisibility, оба они позволяют показать или скрыть эту панель вне зависимости от настроек Page.
+        // Элемент Page может взаимодействовать со своим навигационным контейнером с помощью класса NavigationService.
+        // Чтобы получить экземпляр NavigationService, следует вызвать статический метод NavigationService.GetNavigationService, передав ему экземпляр Page.
+        // Но можно поступить и проще, обратившись к свойству NavigationService объекта Page.
+        // this.NavigationService.Title = "Main Photo Gallery Page";
+        // this.NavigationService.Refresh();
+
+        // Переходы между страницами
+        // Есть три основных способа навигации:
+        // - Посредством метода Navigate
+        // - С помощью гиперссылок (объектов Hyperlink)
+        // - С помощью журнала
+
+        // Вызов метода Navigate
+        // Перейти к экземпляру страницы 
+        // PhotoPage nextPage = new PhotoPage();
+        // this.NavigationService.Navigate(nextPage);
+        // Или перейти на страницу с заданным URI
+        // this.NavigationService.Navigate(new Uri("PhotoPage.xaml", UriKind.Relative));
+        
+        // Представление метода Navigate в виде двух свойств
+        // Чтобы перейти к объекту Page, достаточно установить свойство Content:
+        // this.NavigationService.Content = nextPage;
+        // this.NavigationService.Source = new Uri("PhotoPage.xaml", UriKind.Relative);
+
+        // Использование элемента Hyperlink
+        // Для простых схем навигации в WPF имеется элемент Hyperlink, который ведет себя во многом аналогично гиперссылкам в HTML.
+        // <TextBlock>
+        // Click <Hyperlink NavigateUri="PhotoPage.xaml">here</Hyperlink> to view the photo.
+        // </TextBlock>
+        // Совет
+        // Если вам нужна гибкость программной навигации в сочетании с удобными средствами автоматического форматирования текста, предоставляемыми классом Hyperlink, то можете указать в Hyperlink фиктивное значение свойства NavigateUri, а потом в обработчике события Click этого элемента вызвать метод Navigate, задав нужный адрес перехода.
+        // Совет
+        // Класс Hyperlink поддерживает и дополнительные возможности – как и гиперссылки в HTML.
+        // Например, для перехода в конкретный фрейм Frame в случае, когда фреймов несколько, следует присвоить свойству TargetName элемента Hyperlink имя нужного фрейма.
+        // Чтобы перейти к определенному месту внутри страницы Page (как в HTML-якорях, обозначаемых символом #), достаточно дописать в конец URI символ # и имя любого элемента на целевой странице.
+        // в качестве значения HREF задать какое-нибудь фиктивное значение и написать обработчик события Navigating, в котором динамически изменить цель, вызвав метод Navigate самостоятельно.
+
+        // Использование журнала
+        // Отражение навигации в журнале
+        // Назад - Помещает текущую страницу в стек прямых переходов, извлекает страницу из стека обратных переходов и переходит на нее
+        // Вперед - Помещает текущую страницу в стек обратных переходов, извлекает страницу из стека прямых переходов и переходит на нее
+        // Любая другая навигация - Помещает текущую страницу в стек обратных переходов и опустошает стек прямых переходов
+        // Действия перехода назад и вперед могут быть инициированы как пользователем, так и программой – путем вызова методов GoBack и GoForward навигационного контейнера (предварительно вызвав соответственно метод CanGoBack или CanGoForward, чтобы избежать исключения в результате попытки извлечения из пустого стека).
+        // В объекте NavigationWindow журнал есть всегда, тогда как в объекте Frame собственного журнала может и не быть; это зависит от его свойства JournalOwnership, которое может принимать следующие значения:
+        // - OwnsJournal – у фрейма есть свой журнал.
+        // - UsesParentJournal – история хранится в журнале родительского контейнера или не хранится вовсе, если у родителя нет журнала.
+        // - Automatic – эквивалентно UsesParentJournal, если фрейм содержится в любом из двух навигационных контейнеров (NavigationWindow или Frame), в противном случае эквивалентно OwnsJournal. Это значение по умолчанию.
+        // Если у фрейма есть собственный журнал, он получает также встроенные кнопки навигации. Если они вам не нужны, присвойте свойству NavigationUIVisibility значение Hidden.
+        // СОВЕТ
+        // В случае перехода на страницу Page с помощью URI (неважно, путем вызова метода Navigate или посредством гиперссылки Hyperlink) создается новый экземпляр Page, даже если вы уже посещали эту страницу.
+        // Поэтому, если требуется, чтобы страница «запоминала» свои данные, необходимо хранить состояния отдельно (например, в статических переменных или в словаре Application.Properties). (При вызове варианта Navigate, принимающего экземпляр Page, вы, разумеется, вольны сами решать, передать ли ему новый или старый объект.)
+        // Однако в случае навигации по журналу можно установить режим принудительного использования одного и того же объекта Page, присвоив его присоединенному свойству JournalEntry.KeepAlive значение true.
+        // Совет
+        // Объект Page может потребовать не заносить себя в журнал, присвоив своему свойству RemoveFromJournal значение true.
+        // Это имеет смысл для страниц, являющихся частью  некоторой последовательности шагов, которые нельзя открывать в произвольном порядке после завершения операции.
+
+        // События навигации
+        // Вне зависимости от того, как инициирована навигация – путем вызова метода Navigate, с помощью гиперссылок Hyperlink или по журналу, – она всегда производится асинхронно.
+        // В процессе навигации генерируется ряд событий, позволяющих сообщать пользователю подробную информацию или даже прервать навигацию.
+        // События навигации, возникающие при загрузке первой страницы:
+        // Navigation Container: Initialized -> Navigating -> NavigationProgress -> Loading -> first page initialized -> Navigated -> LoadCompleted -> first page loaded.
+        // События навигации, возникающие при переходе от одной страницы к другой:
+        // Navigation Container: Navigating -> NavigationProgress -> Loading -> second page Initialized -> first page unloaded -> Navigated -> LoadCompleted -> second page Loaded.
+        
+        // Передача данных между страницами
+        
+        // Передача данных странице
+        // WPF поддерживает схему, аналогичную параметрам URL, с помощью перегруженных вариантов метода Navigate, которые принимают дополнительный параметр типа Object.
+        // int photoId = 10;
+        // Перейти к экземпляру Page
+        // PhotoPage nextPage = new PhotoPage();
+        // this.NavigationService.Navigate(nextPage, photoId);
+        // Или перейти к странице по URI
+        // this.NavigationService.Navigate(
+        // new Uri("PhotoPage.xaml", UriKind.Relative), photoId);
+
+        // Чтобы целевая страница могла получить данные, она должна обработать событие LoadCompleted навигационного контейнера и опросить свойство ExtraData аргумента события:
+        // this.NavigationService.LoadCompleted += new LoadCompletedEventHandler(container_LoadCompleted);
+        // void container_LoadCompleted(object sender, NavigationEventArgs e)
+        // {
+        // if (e.ExtraData != null)
+        // LoadPhoto((int)e.ExtraData);
+        // }
+        // Есть и более простой метод:
+        // int photoId = 10;
+        // Перейти к экземпляру Page
+        // PhotoPage nextPage = new PhotoPage(photoId);
+        // this.NavigationService.Navigate(nextPage);
+        // Третий способ – организовать глобальное обобществление данных с помощью коллекции Properties объекта Application.
+        // Такой подход может оказаться удобным, когда нужно сделать данные доступными нескольким страницам (а не просто передать от одной страницыдругой).
+        // Однако недостатком, как и в первом случае, является отсутствие строгой типизации.
+
+        // Возврат данных от страницы с помощью PageFunction
+        // Классический пример – страница настроек.
+        // Достигается это с помощью класса с забавным названием PageFunction.
+        // <PageFunction
+        // xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        // xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        // xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        // x:Class="MyProject.PageFunction1"
+        // x:TypeArguments="sys:String"
+        // Title="PageFunction1">
+        // <Grid>
+        // </Grid>
+        // </PageFunction>
+
+        // Поскольку PageFunction – подкласс Page, то на элемент этого типа можно переходить точно так же, как на любую другую страницу:
+        // PageFunction1 nextPage = new PageFunction1<string>();
+        // this.NavigationService.Navigate(nextPage);
+        // Для получения возвращенного значения исходная страница должна обработать событие Return объекта PageFunction:
+        // nextPage.Return += new ReturnEventHandler<string>(nextPage_Return);
+        // ...
+        // void nextPage_Return(object sender, ReturnEventArgs<string> e)
+        // {
+        // string returnValue = e.Result;
+        // }
+        // Страница, производная от PageFunction, может вернуть данные, обернув их типом ReturnEventArgs и вызвав метод OnReturn, унаследованный от базового класса PageFunction:
+        // OnReturn(new ReturnEventArgs<string>("the data"));
+
+        // Приложения-гаджеты
+
+        // XAML-приложения для браузера
+
+
+        // 8 Особенности Windows 7
+
     }
 }
