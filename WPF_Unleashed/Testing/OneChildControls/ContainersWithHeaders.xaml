@@ -7,6 +7,22 @@
       d:DesignHeight="330" d:DesignWidth="330"
 	Title="ContainersWithHeaders">
     <Grid>
-        
+        <GroupBox HorizontalAlignment="Left" Margin="10,19,0,0" VerticalAlignment="Top">
+            <GroupBox.Header>
+                <Button>Grammar</Button>
+            </GroupBox.Header>
+            <StackPanel>
+                <CheckBox>Check grammar as you type</CheckBox>
+                <CheckBox>Hide grammatical errors in this document</CheckBox>
+                <CheckBox>Check grammar with spelling</CheckBox>
+            </StackPanel>
+        </GroupBox>
+        <Expander Header="Grammar" HorizontalAlignment="Left" Margin="10,114,0,0" VerticalAlignment="Top">
+            <StackPanel>
+                <CheckBox>Check grammar as you type</CheckBox>
+                <CheckBox>Hide grammatical errors in this document</CheckBox>
+                <CheckBox>Check grammar with spelling</CheckBox>
+            </StackPanel>
+        </Expander>
     </Grid>
 </Page>

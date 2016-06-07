@@ -187,3 +187,8 @@ WPF_Unleashed/obj/Debug/Testing/OneChildControls/ContainersWithHeaders.g.i.cs
 WPF_Unleashed/obj/Debug/Testing/OneChildControls/DialogWindow.g.i.cs
 WPF_Unleashed/obj/Debug/Testing/OneChildControls/Properties.g.i.cs
 WPF_Unleashed/obj/Debug/Testing/OneChildControls/SimpleContainers.g.i.cs
+WPF_Unleashed/obj/Debug/Testing/ItemsControls/ComboBox.g.i.cs
+WPF_Unleashed/obj/Debug/Testing/ItemsControls/ItemsControls.g.i.cs
+WPF_Unleashed/obj/Debug/Testing/ItemsControls/ItemsPanel.g.i.cs
+WPF_Unleashed/obj/Debug/Testing/ItemsControls/ListBox.g.i.cs
+WPF_Unleashed/obj/Debug/Testing/ItemsControls/Selectors.g.i.cs

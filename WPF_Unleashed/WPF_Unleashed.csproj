@@ -83,6 +83,21 @@
     <Compile Include="Testing\Events\Events.xaml.cs">
       <DependentUpon>Events.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Testing\ItemsControls\ComboBox.xaml.cs">
+      <DependentUpon>ComboBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Testing\ItemsControls\ItemsControls.xaml.cs">
+      <DependentUpon>ItemsControls.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Testing\ItemsControls\ItemsPanel.xaml.cs">
+      <DependentUpon>ItemsPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Testing\ItemsControls\ListBox.xaml.cs">
+      <DependentUpon>ListBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Testing\ItemsControls\Selectors.xaml.cs">
+      <DependentUpon>Selectors.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Testing\MyApp.xaml.cs">
       <DependentUpon>MyApp.xaml</DependentUpon>
     </Compile>
@@ -629,6 +644,26 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Testing\Events\Events.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Testing\ItemsControls\ComboBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Testing\ItemsControls\ItemsControls.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Testing\ItemsControls\ItemsPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Testing\ItemsControls\ListBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Testing\ItemsControls\Selectors.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
