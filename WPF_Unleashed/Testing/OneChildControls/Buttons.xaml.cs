@@ -35,5 +35,15 @@ namespace WPF_Unleashed.Testing.OneChildControls
                 myLabel.Content = newFileName;
             }
         }
+
+        private void RepeatButton_Click(object sender, RoutedEventArgs e)
+        {
+            Rect.Width += 10;
+        }
+
+        private void RepeatButton_Click_1(object sender, RoutedEventArgs e)
+        {
+            Rect.Width -= 10;
+        }
     }
 }

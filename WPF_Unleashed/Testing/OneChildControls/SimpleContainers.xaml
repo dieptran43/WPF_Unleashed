@@ -6,8 +6,9 @@
       mc:Ignorable="d" 
       d:DesignHeight="330" d:DesignWidth="330"
 	Title="SimpleContainers">
-
     <Grid>
-        
+        <Label Content="_User Name:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Target="UserNameTextBox"/>
+        <TextBox Name ="UserNameTextBox" HorizontalAlignment="Left" Height="23" Margin="97,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Button Content="OK" HorizontalAlignment="Left" Margin="20,41,0,0" VerticalAlignment="Top" Width="75" ToolTip="Clicking this will submit your request."/>
     </Grid>
 </Page>

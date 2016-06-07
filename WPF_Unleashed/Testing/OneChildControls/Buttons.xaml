@@ -9,5 +9,15 @@
     <Grid>
         <Button Content="Dialog Window" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="92" Click="Button_Click"/>
         <Label Name ="myLabel" Content="John" HorizontalAlignment="Left" Margin="121,10,0,0" VerticalAlignment="Top"/>
+        <RepeatButton Content="Grow" HorizontalAlignment="Left" Margin="10,46,0,0" VerticalAlignment="Top" Width="75" Delay="500" Interval="100" Click="RepeatButton_Click"/>
+        <RepeatButton Content="Shrink" HorizontalAlignment="Left" Margin="102,46,0,0" VerticalAlignment="Top" Width="75" Delay="500" Interval="100" Click="RepeatButton_Click_1"/>
+        <Rectangle Name ="Rect" Fill="Orange" HorizontalAlignment="Left" Height="100" Margin="196,46,0,0" Stroke="Black" VerticalAlignment="Top" Width="100"/>
+        <ToggleButton Content="Toggle Button" HorizontalAlignment="Left" Margin="10,86,0,0" VerticalAlignment="Top" Width="92"/>
+        <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="10,113,0,0" VerticalAlignment="Top"/>
+        <StackPanel HorizontalAlignment="Left" Height="53" Margin="20,146,0,0" VerticalAlignment="Top" Width="82">
+            <RadioButton>Option 1</RadioButton>
+            <RadioButton>Option 2</RadioButton>
+            <RadioButton>Option 3</RadioButton>
+        </StackPanel>
     </Grid>
 </Page>
