@@ -86,8 +86,20 @@
     <Compile Include="Testing\MyApp.xaml.cs">
       <DependentUpon>MyApp.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Testing\OneChildControls\Buttons.xaml.cs">
+      <DependentUpon>Buttons.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Testing\OneChildControls\ContainersWithHeaders.xaml.cs">
+      <DependentUpon>ContainersWithHeaders.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Testing\OneChildControls\DialogWindow.xaml.cs">
+      <DependentUpon>DialogWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Testing\OneChildControls\OneChildControls.xaml.cs">
       <DependentUpon>OneChildControls.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Testing\OneChildControls\SimpleContainers.xaml.cs">
+      <DependentUpon>SimpleContainers.xaml</DependentUpon>
     </Compile>
     <Compile Include="Testing\Panel\CoolPanel.xaml.cs">
       <DependentUpon>CoolPanel.xaml</DependentUpon>
@@ -624,7 +636,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Testing\OneChildControls\Buttons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Testing\OneChildControls\ContainersWithHeaders.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Testing\OneChildControls\DialogWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Testing\OneChildControls\OneChildControls.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Testing\OneChildControls\SimpleContainers.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

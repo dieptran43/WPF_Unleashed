@@ -182,3 +182,8 @@ WPF_Unleashed/obj/Debug/Testing/Deployment/MyProperties.g.i.cs
 WPF_Unleashed/obj/Debug/Testing/Deployment/Navigation.g.i.cs
 WPF_Unleashed/obj/Debug/Testing/Deployment/TheirProperties.g.i.cs
 WPF_Unleashed/obj/Debug/Testing/OneChildControls/OneChildControls.g.i.cs
+WPF_Unleashed/obj/Debug/Testing/OneChildControls/Buttons.g.i.cs
+WPF_Unleashed/obj/Debug/Testing/OneChildControls/ContainersWithHeaders.g.i.cs
+WPF_Unleashed/obj/Debug/Testing/OneChildControls/DialogWindow.g.i.cs
+WPF_Unleashed/obj/Debug/Testing/OneChildControls/Properties.g.i.cs
+WPF_Unleashed/obj/Debug/Testing/OneChildControls/SimpleContainers.g.i.cs

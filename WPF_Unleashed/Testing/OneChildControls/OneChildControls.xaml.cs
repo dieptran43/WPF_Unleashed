@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Navigation;
 
 namespace WPF_Unleashed.Testing.OneChildControls
 {
@@ -22,6 +23,24 @@ namespace WPF_Unleashed.Testing.OneChildControls
         public OneChildControls()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Buttons page = new Buttons();
+            myFrame.NavigationService.Navigate(page);
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            SimpleContainers page = new SimpleContainers();
+            myFrame.NavigationService.Navigate(page);
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            ContainersWithHeaders page = new ContainersWithHeaders();
+            myFrame.NavigationService.Navigate(page);
         }
     }
 }
