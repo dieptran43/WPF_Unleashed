@@ -192,3 +192,7 @@ WPF_Unleashed/obj/Debug/Testing/ItemsControls/ItemsControls.g.i.cs
 WPF_Unleashed/obj/Debug/Testing/ItemsControls/ItemsPanel.g.i.cs
 WPF_Unleashed/obj/Debug/Testing/ItemsControls/ListBox.g.i.cs
 WPF_Unleashed/obj/Debug/Testing/ItemsControls/Selectors.g.i.cs
+WPF_Unleashed/obj/Debug/Testing/ItemsControls/MyComboBox.g.i.cs
+WPF_Unleashed/obj/Debug/Testing/ItemsControls/MyListBox.g.i.cs
+WPF_Unleashed/obj/Debug/Testing/ItemsControls/MyListView.g.i.cs
+WPF_Unleashed/obj/Debug/Testing/ItemsControls/MyTabControl.g.i.cs

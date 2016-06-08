@@ -83,8 +83,8 @@
     <Compile Include="Testing\Events\Events.xaml.cs">
       <DependentUpon>Events.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Testing\ItemsControls\ComboBox.xaml.cs">
-      <DependentUpon>ComboBox.xaml</DependentUpon>
+    <Compile Include="Testing\ItemsControls\MyComboBox.xaml.cs">
+      <DependentUpon>MyComboBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="Testing\ItemsControls\ItemsControls.xaml.cs">
       <DependentUpon>ItemsControls.xaml</DependentUpon>
@@ -94,6 +94,15 @@
     </Compile>
     <Compile Include="Testing\ItemsControls\ListBox.xaml.cs">
       <DependentUpon>ListBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Testing\ItemsControls\MyListBox.xaml.cs">
+      <DependentUpon>MyListBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Testing\ItemsControls\MyListView.xaml.cs">
+      <DependentUpon>MyListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Testing\ItemsControls\MyTabControl.xaml.cs">
+      <DependentUpon>MyTabControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Testing\ItemsControls\Selectors.xaml.cs">
       <DependentUpon>Selectors.xaml</DependentUpon>
@@ -647,7 +656,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Testing\ItemsControls\ComboBox.xaml">
+    <Page Include="Testing\ItemsControls\MyComboBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -660,6 +669,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Testing\ItemsControls\ListBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Testing\ItemsControls\MyListBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Testing\ItemsControls\MyListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Testing\ItemsControls\MyTabControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -794,6 +815,10 @@
     <Resource Include="Testing\Panel\Images\pinHorizontal.gif" />
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Testing\ItemsControls\Images\curtainCall.bmp" />
+    <Resource Include="Testing\ItemsControls\Images\fireworks.bmp" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -11,29 +11,24 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.ComponentModel;
 
 namespace WPF_Unleashed.Testing.ItemsControls
 {
     /// <summary>
-    /// Interaction logic for Selectors.xaml
+    /// Interaction logic for MyListBox.xaml
     /// </summary>
-    public partial class Selectors : Window
+    public partial class MyListBox : Window
     {
-        public Selectors()
+        public MyListBox()
         {
             InitializeComponent();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MyComboBox window = new MyComboBox();
-            window.Show();
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            MyListBox window = new MyListBox();
-            window.Show();
+            MyLB.Items.SortDescriptions.Clear();
+            MyLB.Items.SortDescriptions.Add(new SortDescription("Content", ListSortDirection.Ascending));
         }
     }
 }

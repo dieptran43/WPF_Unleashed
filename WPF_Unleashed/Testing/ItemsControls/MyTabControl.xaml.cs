@@ -15,25 +15,13 @@ using System.Windows.Shapes;
 namespace WPF_Unleashed.Testing.ItemsControls
 {
     /// <summary>
-    /// Interaction logic for Selectors.xaml
+    /// Interaction logic for MyTabControl.xaml
     /// </summary>
-    public partial class Selectors : Window
+    public partial class MyTabControl : Window
     {
-        public Selectors()
+        public MyTabControl()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            MyComboBox window = new MyComboBox();
-            window.Show();
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            MyListBox window = new MyListBox();
-            window.Show();
         }
     }
 }

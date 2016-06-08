@@ -41,5 +41,17 @@ namespace WPF_Unleashed.Testing.ItemsControls
             Selectors window = new Selectors();
             window.Show();
         }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            MyListView window = new MyListView();
+            window.Show();
+        }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            MyTabControl window = new MyTabControl();
+            window.Show();
+        }
     }
 }

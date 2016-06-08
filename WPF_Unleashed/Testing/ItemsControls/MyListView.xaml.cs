@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace WPF_Unleashed.Testing.ItemsControls
 {
     /// <summary>
-    /// Interaction logic for ComboBox.xaml
+    /// Interaction logic for MyListView.xaml
     /// </summary>
-    public partial class ComboBox : Window
+    public partial class MyListView : Window
     {
-        public ComboBox()
+        public MyListView()
         {
             InitializeComponent();
         }
