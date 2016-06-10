@@ -53,5 +53,41 @@ namespace WPF_Unleashed.Testing.ItemsControls
             MyTabControl window = new MyTabControl();
             window.Show();
         }
+
+        private void Button_Click_5(object sender, RoutedEventArgs e)
+        {
+            MyDataGrid window = new MyDataGrid();
+            window.Show();
+        }
+
+        private void Button_Click_6(object sender, RoutedEventArgs e)
+        {
+            MyMenu window = new MyMenu();
+            window.Show();
+        }
+
+        private void Button_Click_7(object sender, RoutedEventArgs e)
+        {
+            MyContextMenu window = new MyContextMenu();
+            window.Show();
+        }
+
+        private void Button_Click_8(object sender, RoutedEventArgs e)
+        {
+            MyTreeView window = new MyTreeView();
+            window.Show();
+        }
+
+        private void Button_Click_9(object sender, RoutedEventArgs e)
+        {
+            MyToolBar window = new MyToolBar();
+            window.Show();
+        }
+
+        private void Button_Click_10(object sender, RoutedEventArgs e)
+        {
+            MyStatusBar window = new MyStatusBar();
+            window.Show();
+        }
     }
 }

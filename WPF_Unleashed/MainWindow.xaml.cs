@@ -48,5 +48,11 @@ namespace WPF_Unleashed
             Testing.Testing window = new Testing.Testing();
             window.Show();
         }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            Linq.Linq window = new Linq.Linq();
+            window.Show();
+        }
     }
 }

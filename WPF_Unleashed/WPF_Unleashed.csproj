@@ -53,6 +53,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Linq\Linq.xaml.cs">
+      <DependentUpon>Linq.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Testing\Deployment\Deployment.xaml.cs">
       <DependentUpon>Deployment.xaml</DependentUpon>
     </Compile>
@@ -83,6 +86,9 @@
     <Compile Include="Testing\Events\Events.xaml.cs">
       <DependentUpon>Events.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Testing\ImageTextOther\ImageTextOther.xaml.cs">
+      <DependentUpon>ImageTextOther.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Testing\ItemsControls\MyComboBox.xaml.cs">
       <DependentUpon>MyComboBox.xaml</DependentUpon>
     </Compile>
@@ -95,14 +101,32 @@
     <Compile Include="Testing\ItemsControls\ListBox.xaml.cs">
       <DependentUpon>ListBox.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Testing\ItemsControls\MyContextMenu.xaml.cs">
+      <DependentUpon>MyContextMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Testing\ItemsControls\MyDataGrid.xaml.cs">
+      <DependentUpon>MyDataGrid.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Testing\ItemsControls\MyListBox.xaml.cs">
       <DependentUpon>MyListBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="Testing\ItemsControls\MyListView.xaml.cs">
       <DependentUpon>MyListView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Testing\ItemsControls\MyMenu.xaml.cs">
+      <DependentUpon>MyMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Testing\ItemsControls\MyStatusBar.xaml.cs">
+      <DependentUpon>MyStatusBar.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Testing\ItemsControls\MyTabControl.xaml.cs">
       <DependentUpon>MyTabControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Testing\ItemsControls\MyToolBar.xaml.cs">
+      <DependentUpon>MyToolBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Testing\ItemsControls\MyTreeView.xaml.cs">
+      <DependentUpon>MyTreeView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Testing\ItemsControls\Selectors.xaml.cs">
       <DependentUpon>Selectors.xaml</DependentUpon>
@@ -413,6 +437,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Linq\Linq.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -656,6 +684,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Testing\ImageTextOther\ImageTextOther.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Testing\ItemsControls\MyComboBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -672,6 +704,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Testing\ItemsControls\MyContextMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Testing\ItemsControls\MyDataGrid.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Testing\ItemsControls\MyListBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -680,7 +720,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Testing\ItemsControls\MyMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Testing\ItemsControls\MyStatusBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Testing\ItemsControls\MyTabControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Testing\ItemsControls\MyToolBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Testing\ItemsControls\MyTreeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -814,7 +870,17 @@
     <Resource Include="Testing\Panel\Images\pin.gif" />
     <Resource Include="Testing\Panel\Images\pinHorizontal.gif" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Testing\ItemsControls\Images\bold.gif" />
+    <Resource Include="Testing\ItemsControls\Images\copy.gif" />
+    <Resource Include="Testing\ItemsControls\Images\italic.gif" />
+    <Resource Include="Testing\ItemsControls\Images\justify.gif" />
+    <Resource Include="Testing\ItemsControls\Images\left.gif" />
+    <Resource Include="Testing\ItemsControls\Images\right.gif" />
+    <Resource Include="Testing\ItemsControls\Images\subscript.gif" />
+    <Resource Include="Testing\ItemsControls\Images\superscript.gif" />
+    <Resource Include="Testing\ItemsControls\Images\underline.gif" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Testing\ItemsControls\Images\curtainCall.bmp" />
     <Resource Include="Testing\ItemsControls\Images\fireworks.bmp" />

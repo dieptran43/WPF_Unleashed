@@ -8,5 +8,11 @@
         <Button Content="Selectors" HorizontalAlignment="Left" Margin="10,64,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_2"/>
         <Button Content="ListView" HorizontalAlignment="Left" Margin="10,91,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_3"/>
         <Button Content="TabControl" HorizontalAlignment="Left" Margin="10,118,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_4"/>
+        <Button Content="DataGrid" HorizontalAlignment="Left" Margin="10,145,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_5"/>
+        <Button Content="Menu" HorizontalAlignment="Left" Margin="10,172,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_6"/>
+        <Button Content="ContextMenu" HorizontalAlignment="Left" Margin="10,199,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_7"/>
+        <Button Content="TreeView" HorizontalAlignment="Left" Margin="10,226,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_8"/>
+        <Button Content="ToolBar" HorizontalAlignment="Left" Margin="90,10,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_9"/>
+        <Button Content="StatusBar" HorizontalAlignment="Left" Margin="90,37,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_10"/>
     </Grid>
 </Window>

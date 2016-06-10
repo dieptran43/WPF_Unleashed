@@ -3,6 +3,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MyTabControl" Height="300" Width="300">
     <Grid>
-        
+        <TabControl HorizontalAlignment="Left" Height="150" Margin="10,10,0,0" VerticalAlignment="Top" Width="150">
+            <TabItem Header="Tab 1">Content for Tab 1.</TabItem>
+            <TabItem Header="Tab 2">Content for Tab 2.</TabItem>
+            <TabItem Header="Tab 3">Content for Tab 3.</TabItem>
+        </TabControl>
+
     </Grid>
 </Window>
