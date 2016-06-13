@@ -41,5 +41,11 @@ namespace WPF_Unleashed.Testing.ImageTextOther
             MyDocuments window = new MyDocuments();
             window.Show();
         }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            Other window = new Other();
+            window.Show();
+        }
     }
 }

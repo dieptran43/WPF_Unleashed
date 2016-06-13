@@ -95,6 +95,9 @@
     <Compile Include="Testing\ImageTextOther\MyImage.xaml.cs">
       <DependentUpon>MyImage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Testing\ImageTextOther\Other.xaml.cs">
+      <DependentUpon>Other.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Testing\ImageTextOther\TextInk.xaml.cs">
       <DependentUpon>TextInk.xaml</DependentUpon>
     </Compile>
@@ -702,6 +705,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Testing\ImageTextOther\MyImage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Testing\ImageTextOther\Other.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
