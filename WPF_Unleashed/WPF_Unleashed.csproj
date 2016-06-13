@@ -89,6 +89,15 @@
     <Compile Include="Testing\ImageTextOther\ImageTextOther.xaml.cs">
       <DependentUpon>ImageTextOther.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Testing\ImageTextOther\MyDocuments.xaml.cs">
+      <DependentUpon>MyDocuments.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Testing\ImageTextOther\MyImage.xaml.cs">
+      <DependentUpon>MyImage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Testing\ImageTextOther\TextInk.xaml.cs">
+      <DependentUpon>TextInk.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Testing\ItemsControls\MyComboBox.xaml.cs">
       <DependentUpon>MyComboBox.xaml</DependentUpon>
     </Compile>
@@ -688,6 +697,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Testing\ImageTextOther\MyDocuments.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Testing\ImageTextOther\MyImage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Testing\ImageTextOther\TextInk.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Testing\ItemsControls\MyComboBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -884,6 +905,12 @@
   <ItemGroup>
     <Resource Include="Testing\ItemsControls\Images\curtainCall.bmp" />
     <Resource Include="Testing\ItemsControls\Images\fireworks.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Testing\ImageTextOther\Images\windows.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Testing\ImageTextOther\Images\diagram.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

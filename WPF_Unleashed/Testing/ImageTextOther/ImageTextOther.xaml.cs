@@ -23,5 +23,23 @@ namespace WPF_Unleashed.Testing.ImageTextOther
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MyImage window = new MyImage();
+            window.Show();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            TextInk window = new TextInk();
+            window.Show();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            MyDocuments window = new MyDocuments();
+            window.Show();
+        }
     }
 }
