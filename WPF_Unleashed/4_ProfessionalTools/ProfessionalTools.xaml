@@ -1,0 +1,8 @@
+﻿<Window x:Class="WPF_Unleashed._4_ProfessionalTools.ProfessionalTools"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ProfessionalTools" Height="300" Width="300">
+    <Grid>
+        <Button Content="12. Resources" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="80" Click="Button_Click"/>
+    </Grid>
+</Window>

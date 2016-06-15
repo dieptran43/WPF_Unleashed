@@ -54,5 +54,11 @@ namespace WPF_Unleashed
             Linq.Linq window = new Linq.Linq();
             window.Show();
         }
+
+        private void Button_Click_5(object sender, RoutedEventArgs e)
+        {
+            _4_ProfessionalTools.ProfessionalTools window = new _4_ProfessionalTools.ProfessionalTools();
+            window.Show();
+        }
     }
 }
