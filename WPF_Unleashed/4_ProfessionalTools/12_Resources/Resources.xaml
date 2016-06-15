@@ -3,15 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Resources" Height="300" Width="300">
     <Grid>
-        <Button HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75">
-            <Image Height="21" Source="Images/previous.gif"/>
-        </Button>
-        <Button HorizontalAlignment="Left" Margin="85,10,0,0" VerticalAlignment="Top" Width="75">
-            <Image Height="21" Source="Images/slideshow.gif"/>
-        </Button>
-        <Button HorizontalAlignment="Left" Margin="160,10,0,0" VerticalAlignment="Top" Width="75">
-            <Image Height="21" Source="Images/next.gif"/>
-        </Button>
-        <Button Content="Access resource" HorizontalAlignment="Left" Margin="10,42,0,0" VerticalAlignment="Top" Width="92" Click="Button_Click"/>
+        <Button Content="Binary resource" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="94" Click="Button_Click"/>
+        <Button Content="Logical resource" HorizontalAlignment="Left" Margin="10,37,0,0" VerticalAlignment="Top" Width="94" Click="Button_Click_1"/>
+
     </Grid>
 </Window>

@@ -26,8 +26,14 @@ namespace WPF_Unleashed._4_ProfessionalTools._12_Resources
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Image image = new Image();
-            image.Source = new BitmapImage(new Uri("pack://application:,,,/logo.jpg"));
+            BinaryResource window = new BinaryResource();
+            window.Show();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            LogicalResources window = new LogicalResources();
+            window.Show();
         }
     }
 
@@ -155,7 +161,12 @@ namespace WPF_Unleashed._4_ProfessionalTools._12_Resources
 
     // Логические ресурсы
     // Логические ресурсы представляют собой произвольные объекты .NET, хранящиеся в свойстве элемента Resources.
-    // 
+    // Обычно предполагается, что таким ресурсом смогут сообща пользоваться все потомки данного элемента.
+    // Свойство Resources (типа System.Windows.ResourceDictionary) определено в базовых классах FrameworkElement и FrameworkContentElement, а это означает, что оно есть в большинстве классов WPF.
+    // В качестве логических ресурсов часто выступают стили или поставщики данных.
+    // Но в этой главемы будем хранить в логическом ресурсе простую кисть Brush.
+    // 406
+
 
 
 
