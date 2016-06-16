@@ -62,11 +62,17 @@
     <Compile Include="4_ProfessionalTools\12_Resources\LogicalResources.xaml.cs">
       <DependentUpon>LogicalResources.xaml</DependentUpon>
     </Compile>
+    <Compile Include="4_ProfessionalTools\12_Resources\LogicResource.xaml.cs">
+      <DependentUpon>LogicResource.xaml</DependentUpon>
+    </Compile>
     <Compile Include="4_ProfessionalTools\12_Resources\Resources.xaml.cs">
       <DependentUpon>Resources.xaml</DependentUpon>
     </Compile>
     <Compile Include="4_ProfessionalTools\12_Resources\SimpleWindow.xaml.cs">
       <DependentUpon>SimpleWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="4_ProfessionalTools\12_Resources\StaticDynamicResources.xaml.cs">
+      <DependentUpon>StaticDynamicResources.xaml</DependentUpon>
     </Compile>
     <Compile Include="4_ProfessionalTools\ProfessionalTools.xaml.cs">
       <DependentUpon>ProfessionalTools.xaml</DependentUpon>
@@ -475,11 +481,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="4_ProfessionalTools\12_Resources\LogicResource.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="4_ProfessionalTools\12_Resources\Resources.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="4_ProfessionalTools\12_Resources\SimpleWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="4_ProfessionalTools\12_Resources\StaticDynamicResources.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

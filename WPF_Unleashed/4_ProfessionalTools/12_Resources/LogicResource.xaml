@@ -1,0 +1,45 @@
+﻿<Window x:Class="WPF_Unleashed._4_ProfessionalTools._12_Resources.LogicResource"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="LogicResource" Height="300" Width="300">
+    <Window.Resources>
+        <LinearGradientBrush x:Key="backgroundBrush" StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="Blue" Offset="0"/>
+            <GradientStop Color="White" Offset="0.5"/>
+            <GradientStop Color="Red" Offset="1"/>
+        </LinearGradientBrush>
+        <SolidColorBrush x:Key="borderBrush">Red</SolidColorBrush>
+    </Window.Resources>
+    <Window.Background>
+        <StaticResource ResourceKey="backgroundBrush"/>
+    </Window.Background>
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Background="{StaticResource backgroundBrush}" BorderBrush="{StaticResource borderBrush}" Margin="5">
+                <Image Height="21" Source="Images/zoom.gif"/>
+            </Button>
+            <Button Background="{StaticResource backgroundBrush}" BorderBrush="{StaticResource borderBrush}" Margin="5">
+                <Image Height="21" Source="Images/defaultThumbnailSize.gif"/>
+            </Button>
+            <Button Background="{StaticResource backgroundBrush}" BorderBrush="{StaticResource borderBrush}" Margin="5">
+                <Image Height="21" Source="Images/previous.gif"/>
+            </Button>
+            <Button Background="{StaticResource backgroundBrush}" BorderBrush="{StaticResource borderBrush}" Margin="5">
+                <Image Height="21" Source="Images/slideshow.gif"/>
+            </Button>
+            <Button Background="{StaticResource backgroundBrush}" BorderBrush="{StaticResource borderBrush}" Margin="5">
+                <Image Height="21" Source="Images/next.gif"/>
+            </Button>
+            <Button Background="{StaticResource backgroundBrush}" BorderBrush="{StaticResource borderBrush}" Margin="5">
+                <Image Height="21" Source="Images/counterclockwise.gif"/>
+            </Button>
+            <Button Background="{StaticResource backgroundBrush}" BorderBrush="{StaticResource borderBrush}" Margin="5">
+                <Image Height="21" Source="Images/clockwise.gif"/>
+            </Button>
+            <Button Background="{StaticResource backgroundBrush}" BorderBrush="{StaticResource borderBrush}" Margin="5">
+                <Image Height="21" Source="Images/delete.gif"/>
+            </Button>
+        </StackPanel>
+        <ListBox/>
+    </DockPanel>
+</Window>

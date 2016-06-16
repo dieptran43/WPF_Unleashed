@@ -15,25 +15,13 @@ using System.Windows.Shapes;
 namespace WPF_Unleashed._4_ProfessionalTools._12_Resources
 {
     /// <summary>
-    /// Interaction logic for LogicalResources.xaml
+    /// Interaction logic for LogicResource.xaml
     /// </summary>
-    public partial class LogicalResources : Window
+    public partial class LogicResource : Window
     {
-        public LogicalResources()
+        public LogicResource()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            SimpleWindow window = new SimpleWindow();
-            window.Show();
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            LogicResource window = new LogicResource();
-            window.Show();
         }
     }
 }

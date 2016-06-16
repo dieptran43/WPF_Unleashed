@@ -5,6 +5,7 @@
     <Grid>
         <Button Content="Binary resource" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="94" Click="Button_Click"/>
         <Button Content="Logical resource" HorizontalAlignment="Left" Margin="10,37,0,0" VerticalAlignment="Top" Width="94" Click="Button_Click_1"/>
+        <Button Content="Static and Dynamic" HorizontalAlignment="Left" Margin="10,64,0,0" VerticalAlignment="Top" Width="110" Click="Button_Click_2"/>
 
     </Grid>
 </Window>
