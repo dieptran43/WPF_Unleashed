@@ -29,5 +29,11 @@ namespace WPF_Unleashed._4_ProfessionalTools
             _12_Resources.Resources window = new _12_Resources.Resources();
             window.Show();
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            _13_DataBinding.DataBinding window = new _13_DataBinding.DataBinding();
+            window.Show();
+        }
     }
 }
