@@ -5,6 +5,10 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF_Unleashed", "WPF_Unleashed\WPF_Unleashed.csproj", "{47054C83-E29B-4078-9E32-0AA643FD4E95}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoGallery", "WPF_Unleashed\2_WPFApplication_Creation\7_ApplicationDeployment\Standard PhotoGallery\PhotoGallery.csproj", "{62D9AD0C-7C0C-4653-9E3D-6D38ED4530A3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBindingPhotoGallery", "WPF_Unleashed\4_ProfessionalTools\13_DataBinding\PhotoGallery with More Data Binding\DataBindingPhotoGallery.csproj", "{574388D5-E4DB-4D85-BE5E-E7FFE54DB0C0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{47054C83-E29B-4078-9E32-0AA643FD4E95}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{47054C83-E29B-4078-9E32-0AA643FD4E95}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{47054C83-E29B-4078-9E32-0AA643FD4E95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62D9AD0C-7C0C-4653-9E3D-6D38ED4530A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62D9AD0C-7C0C-4653-9E3D-6D38ED4530A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62D9AD0C-7C0C-4653-9E3D-6D38ED4530A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62D9AD0C-7C0C-4653-9E3D-6D38ED4530A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{574388D5-E4DB-4D85-BE5E-E7FFE54DB0C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{574388D5-E4DB-4D85-BE5E-E7FFE54DB0C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{574388D5-E4DB-4D85-BE5E-E7FFE54DB0C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{574388D5-E4DB-4D85-BE5E-E7FFE54DB0C0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

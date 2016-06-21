@@ -997,6 +997,16 @@
     <Resource Include="4_ProfessionalTools\12_Resources\Images\previous.gif" />
     <Resource Include="4_ProfessionalTools\12_Resources\Images\slideshow.gif" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="2_WPFApplication_Creation\7_ApplicationDeployment\Standard PhotoGallery\PhotoGallery.csproj">
+      <Project>{62d9ad0c-7c0c-4653-9e3d-6d38ed4530a3}</Project>
+      <Name>PhotoGallery</Name>
+    </ProjectReference>
+    <ProjectReference Include="4_ProfessionalTools\13_DataBinding\PhotoGallery with More Data Binding\DataBindingPhotoGallery.csproj">
+      <Project>{574388d5-e4db-4d85-be5e-e7ffe54db0c0}</Project>
+      <Name>DataBindingPhotoGallery</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -50,6 +50,13 @@ namespace WPF_Unleashed._2_WPFApplication_Creation._7_ApplicationDeployment
             Navigation window = new Navigation();
             window.Show();
         }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            PhotoGallery.MainWindow window = new PhotoGallery.MainWindow();
+            window.Show();
+        }
+
         // На самом деле имеющийся в VisualStudio шаблон для проектов WPFApplication определяет производный от Application класс Арр в XAML-файле и присваивает его свойству StartupUri ссылку на главное окно Window. В приложении PhotoGallery файл App.xam lвыглядит следующим образом:
         // <Application x:Class="PhotoGallery.App"
         // xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"

@@ -29,6 +29,12 @@ namespace WPF_Unleashed._4_ProfessionalTools._13_DataBinding
             UsingBinding window = new UsingBinding();
             window.Show();
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            DataBindingPhotoGallery.MainWindow window = new DataBindingPhotoGallery.MainWindow();
+            window.Show();
+        }
     }
 
     // Привязка к данным
@@ -147,10 +153,141 @@ namespace WPF_Unleashed._4_ProfessionalTools._13_DataBinding
     // Если в селекторе Selector выбрано несколько объектов (как в случае, когда свойство SelectionMode элемента ListBox равно Multiple или Extended), то все остальные синхронизированные с ним элементы увидят только первый выбранный объект, даже если сами поддерживают множественный выбор!
     
     // Обобществление источника с помощью DataContext
-    // 428
+    // Поэтому WPF поддерживает задание неявного источника данных вместо того, чтобы явно указывать в каждом элементе Binding свойства Source, RelativeSource или ElementName.
+    // Такой неявный источник данных называют также контекстом данных.
+    // чтобы привязать элементы Label и ListBox к одному и тому же объекту-источнику, можно было бы установить DataContext следующим образом:
+    // <StackPanel DataContext="{StaticResource photos}">
+    // <Label x:Name="numItemsLabel"
+    // Content="{Binding Path=Count}" .../>
+    // ...
+    // <ListBox x:Name="pictureBox" DisplayMemberPath="Name"
+    // ItemsSource="{Binding}" ...>
+    // ...
+    // </ListBox>
+    // ...
+    // </StackPanel>
+    // СОВЕТ
+    // Увидев в XAML свойство, значением которого является просто строка {Binding}, легко прийти в недоумение, но это всего  лишь означает, что объект-источник задан где-то выше в дереве в виде контекста данных и что привязка производится ко всему этому объекту, а не к отдельному его свойству.
+    // FAQ
+    // Когда следует задавать объект-источник в виде контекста данных, а когда явно в привязке Binding?
+    // Вообще говоря, это дело вкуса. Если объект-источник используется только в одном свойстве-приемнике, то определение контекста данных – это перебор, да и разметка становится менее понятной.
+    // Если же объект-источник обобществляется, то контекст данных позволяет описать его в одном месте и, значит, уменьшить вероятность ошибки в случае смены источника.
+    // Одна из ситуаций, когда контекст данных оказывается по-настоящему полезным, – подключение ресурсов, определенных где-то в другом месте. 
+    
+    // Управление визуализацией
+    // WPF предоставляет три разных способа получить и отобразить значение источника, поэтому не стоит отказываться от преимуществ привязки к данным, когда с первого взгляда неясно, как добиться желаемого результата в нестандартной ситуации.
+    // Вот эти способы: форматирование строк, шаблоны данных и конвертеры значений.
+    
+    // Форматирование строк
+    // Когда результатом привязки к данным должно стать отображение строки, может оказаться полезным свойство StringFormat объекта Binding.
+    // Если оно задано, то WPF вызывает метод String.Format, передавая ему значение свойства StringFormat в первом аргументе (format) и неформатированный объект-приемник – во втором (args[0]).
+    // <TextBlock x:Name="numItemsLabel"
+    // Text="{Binding StringFormat={}{0} item(s),
+    // Source={StaticResource photos}, Path=Count}"
+    // DockPanel.Dock="Bottom"/>
+    // Вставлять {} необязательно, если Binding используется в виде элемента (а не атрибута) свойства:
+    // <TextBlock x:Name="numItemsLabel" DockPanel.Dock="Bottom">
+    // <TextBlock.Text>
+    // <Binding Source="{StaticResource photos}" Path="Count">
+    // <Binding.StringFormat>{0} item(s)</Binding.StringFormat>
+    // </Binding>
+    // </TextBlock.Text>
+    // </TextBlock>
+    // ПРЕДУПРЕЖДЕНИЕ
+    // Свойство StringFormat работает, только если свойство-приемник — строка!
+    // Попытка воспользоваться им для свойства Content элемента Label не даст никакого эффекта, потому что тип этого свойства – Object.
+    // А вот свойство Text элемента TextBlock имеет тип string, поэтому та же привязка работает для него отлично.
+    // ПРЕДУПРЕЖДЕНИЕ
+    // System.Xaml обрабатывает управляющую последовательность {} некорректно!
+    // У многих элементов управления имеется также свойство XXXStringFormat, где XXX представляет форматируемую часть.
+    // Например, у однодетных элементов есть свойство ContentStringFormat, которое применяется к свойству Content, а у многодетных – свойство ItemStringFormat, применяемое к каждому объекту в коллекции. 
+    // Свойства форматирования строк, имеющиеся в WPF
+    // Свойство - Классы
+    // StringFormat - BindingBase
+    // ContentStringFormat - ContentControl, ContentPresenter, TabControl
+    // ItemStringFormat - ItemsControl, HierarchicalDataTemplate
+    // HeaderStringFormat - HeaderedContentControl, HeaderedItemsControl, DataGridColumn, GridViewColumn, GroupStyle
+    // ColumnHeaderStringFormat - GridView, GridViewHeaderRowPresenter
+    // Вместо замены Label на TextBlock, чтобы иметь возможность воспользоваться свойством StringFormat объекта Binding, можно было бы прибегнуть к собственному свойству элемента Label – ContentStringFormat, поскольку Label – однодетный элемент управления.
+
+    // Шаблоны данных
+    // Шаблон данных – это часть пользовательского интерфейса, которую можно применять к произвольному объекту .NET на этапе его визуализации.
+    // Свойства типа DataTemplate
+    // Свойство - Классы
+    // ContentTemplate - ContentControl, ContentPresenter, TabControl
+    // ItemTemplate - ItemsControl, HierarchicalDataTemplate
+    // HeaderTemplate - HeaderedContentControl, HeaderedItemsControl, DataGridRow, DataGridColumn, GridViewColumn, GroupStyle
+    // SelectedContentTemplate - TabControl
+    // DetailsTemplate - DataGridRow
+    // RowDetailsTemplate - DataGrid
+    // RowHeaderTemplate - DataGrid
+    // ColumnHeaderTemplate - GridView, GridViewHeaderRowPresenter
+    // CellTemplate - DataGridTemplateColumn, GridViewColumn
+    // CellEditingTemplate - DataGridTemplateColumn
+    // Класс DataTemplate, как и класс ItemsPanelTemplate, является производным от FrameworkTemplate. 
+    // Поэтому в нем есть свойство содержимого VisualTree, в которое можно записать произвольное дерево элементов FrameworkElement.
+    // <ListBox x:Name="pictureBox"
+    // ItemsSource="{Binding Source={StaticResource photos}}" ...>
+    // <ListBox.ItemTemplate>
+    // <DataTemplate>
+    // <Image Source="placeholder.jpg" Height="35"/>
+    // </DataTemplate>
+    // </ListBox.ItemTemplate>
+    // ...
+    // </ListBox>
+    // чтобы получить фотографии нужно:
+    // <ListBox x:Name="pictureBox"
+    // ItemsSource="{Binding Source={StaticResource photos}}" ...>
+    // <ListBox.ItemTemplate>
+    // <DataTemplate>
+    // <Image Source="{Binding Path=FullPath}" Height="35"/>
+    // </DataTemplate>
+    // </ListBox.ItemTemplate>
+    // ...
+    // </ListBox>
+    // Разумеется, шаблон данных необязательно определять в том месте, где он используется.
+    // Чаще всего шаблоны данных хранятся в виде ресурсов, разделяемых несколькими элементами.
+    // СОВЕТ
+    // Хотя шаблоны данных можно использовать и с объектами, не привязанными к данным (например, со списком ListBox, который заполнялся вручную), почти всегда желательно, чтобы внутри шаблона привязка к данным была – именно это позволяет изменять визуальное дерево в соответствии с отображаемыми объектами.
+    // КОПНЕМ ГЛУБЖЕ
+    // Селекторы шаблонов
+    // WPF предоставляет также механизм, позволяющий подключить  процедурный код, который может выбрать любой шаблон (или создать новый «на лету») во время выполнения программы, когда возникает необходимость визуализировать данные.
+    // Для этого нужно создать класс, производный от DataTemplateSelector, и переопределить в нем виртуальный метод SelectTemplate. 
+    // Свойство - Классы
+    // ContentTemplateSelector - ContentControl, ContentPresenter, TabControl
+    // ItemTemplateSelector - ItemsControl, HierarchicalDataTemplate
+    // HeaderTemplateSelector - HeaderedContentControl, HeaderedItemsControl, DataGridRow, DataGridColumn, GridViewColumn, GroupStyle
+    // SelectedContentTemplateSelector - TabControl
+    // DetailsTemplateSelector - DataGridRow
+    // RowDetailsTemplateSelector - DataGrid
+    // RowHeaderTemplateSelector - DataGrid
+    // ColumnHeaderTemplateSelector - GridView, GridViewHeaderRowPresenter
+    // CellTemplateSelector - DataGridTemplateColumn, GridViewColumn
+    // CellEditingTemplateSelector - DataGridTemplateColumn
+    
+    // Конвертеры значений
+    // Если шаблоны данных позволяют изменить способ визуализации значений в свойстве-приемнике, то конвертеры значений предназначены для преобразования значения, полученного из источника, в нечто совершенно  иное перед доставкой приемнику.
+    // С их помощью можно подключить собственный код, не отказываясь  от преимуществ привязки к данным.
+    
+    // Согласование несовместимых типов данных
+    // Допустим, вы задумали менять цвет фона метки  (свойство Background) в зависимостиот количества фотографий в коллекции  photos (значение свойства Count).
+    // Следующая привязка не имеет смысла, так как пытается присвоить свойству Background число, а не ожидаемый объект Brush:
+    // <Label Background="{Binding Path=Count, Source={StaticResource photos}}" .../>
+    // Дело можно поправить, подключив конвертер значений с помощью свойства Converter:
+    // <Label Background="{Binding Path=Count, Converter={StaticResource myConverter}, Source={StaticResource photos}}" .../>
+    // Здесь предполагается, что вы написали класс, умеющий преобразовывать целое  число в кисть Brush, и включили его в состав ресурсов:
+    // <Window.Resources>
+    // <local:CountToBackgroundConverter x:Key="myConverter"/>
+    // </Window.Resources>
+    // 437
+
+
+
 
 
     // !!!
+    // - погуглить data binding.
+    // - разобрать еще раз все примеры с главы.
     // - bind to a property
     // - bind to array
 }
