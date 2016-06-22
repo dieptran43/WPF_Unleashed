@@ -77,6 +77,9 @@
     <Compile Include="4_ProfessionalTools\13_DataBinding\DataBinding.xaml.cs">
       <DependentUpon>DataBinding.xaml</DependentUpon>
     </Compile>
+    <Compile Include="4_ProfessionalTools\13_DataBinding\DataProvider.xaml.cs">
+      <DependentUpon>DataProvider.xaml</DependentUpon>
+    </Compile>
     <Compile Include="4_ProfessionalTools\13_DataBinding\UsingBinding.xaml.cs">
       <DependentUpon>UsingBinding.xaml</DependentUpon>
     </Compile>
@@ -504,6 +507,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="4_ProfessionalTools\13_DataBinding\DataBinding.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="4_ProfessionalTools\13_DataBinding\DataProvider.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

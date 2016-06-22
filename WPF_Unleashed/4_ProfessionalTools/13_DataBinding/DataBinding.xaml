@@ -4,6 +4,7 @@
         Title="DataBinding" Height="300" Width="300">
     <Grid>
         <Button Content="Using Binding" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="82" Click="Button_Click"/>
-        <Button Content="PhotoGallery" HorizontalAlignment="Left" Margin="10,47,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
+        <Button Content="PhotoGallery" HorizontalAlignment="Left" Margin="10,37,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
+        <Button Content="Data Provider" HorizontalAlignment="Left" Margin="10,64,0,0" VerticalAlignment="Top" Width="82" Click="Button_Click_2"/>
     </Grid>
 </Window>
