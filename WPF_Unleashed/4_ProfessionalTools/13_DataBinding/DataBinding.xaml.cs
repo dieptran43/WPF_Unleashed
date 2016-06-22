@@ -43,6 +43,18 @@ namespace WPF_Unleashed._4_ProfessionalTools._13_DataBinding
             DataProvider window = new DataProvider();
             window.Show();
         }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            SeveralSources window = new SeveralSources();
+            window.Show();
+        }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            Twitter window = new Twitter();
+            window.Show();
+        }
     }
 
     public class JpgValidationRule : ValidationRule
@@ -60,6 +72,24 @@ namespace WPF_Unleashed._4_ProfessionalTools._13_DataBinding
             return new ValidationResult(true, null);
         }
     }
+
+    // public class ProgressConverter : IMultiValueConverter
+    // {
+    //     public object Convert(object[] values, Type targetType,
+    //     object parameter, CultureInfo culture)
+    //     {
+    //         int totalProgress = 0;
+    //         // Требуется, чтобы каждое поданное на вход значение было экземпляром класса Worker
+    //         foreach (Worker worker in values)
+    //             totalProgress += worker.Progress;
+    //         return totalProgress;
+    //     }
+    //     public object[] ConvertBack(object value, Type[] targetTypes,
+    //     object parameter, CultureInfo culture)
+    //     {
+    //         return DependencyProperty.UnsetValue;
+    //     }
+    // }
 
     // Привязка к данным
     // WPF термин данные обычно употребляется для описания произвольного объекта .NET.
@@ -577,10 +607,103 @@ namespace WPF_Unleashed._4_ProfessionalTools._13_DataBinding
     // </TextBox>
 
     // Передача уже имеющейся обработки ошибок через систему проверки
-    // 466
+    // Если какой-то из вышеупомянутых компонентов возбуждает исключение при тех же условиях, которые вы считаете ошибочными, то можно воспользоваться встроенным объектом ExceptionValidationRule. Например: 
+    // <TextBox>
+    // <TextBox.Text>
+    // <Binding ...>
+    // <Binding.ValidationRules>
+    // <ExceptionValidationRule/>
+    // </Binding.ValidationRules>
+    // </Binding>
+    // </TextBox.Text>
+    // </TextBox>
+    // Объект ExceptionValidationRule просто помечает данные как некорректные, если при попытке обновить свойство-источник возникло любое исключение.
+    // Следовательно, этот механизм позволяет адекватно отреагировать на исключение, а не «глотать» его, оставляя следы только в отладочной трассировке.
+    // WPF пришли к выводу, что этот синтаксис слишком многословный и громоздкий.
+    // Поэтому в версии WPF 3.5 SP1 в класс Binding были добавлены два новых булевских свойства – ValidatesOnExceptions и ValidatesOnDataErrors, – которые позволяют добавитьв коллекцию ValidationRules те же самые правила проверки, но более лаконично. 
+    // Таким образом, предыдущий XAML-код можно переписать и так:
+    // <TextBox>
+    // <TextBox.Text>
+    // <Binding ValidatesOnExceptions="True" ValidatesOnDataErrors="True" .../>
+    // </TextBox.Text>
+    // </TextBox>
+    // КОПНЕМ ГЛУБЖЕ
+    // Существует несколько способов обработки исключений
+    // Еще один способ обработки исключений, возбуждаемых при обновлении источника, заключается в том, чтобы присоединить делегат к свойству UpdateSourceExceptionFilter объекта Binding.
+    // Интересно, что все же существует связь между делегатом UpdateSourceExceptionFilter и другими схемами проверки.
+    // Если делегат возвращает объект ValidationError, то система будет рассматривать этот делегат как правило проверки и добавит полученный объект ValidationError в коллекцию Validation.Errors объекта-приемника, установит для свойства Validation.HasError значение true и, возможно, сгенерирует событие Validation.Error.
+    // Подведем итоги: если источник данных или конвертер значений уже возбуждает исключения при обнаружении некорректных данных, то можно поступить одним из следующих способов:
+    // - Воспользоваться делегатом UpdateSourceExceptionFilter для реализации собственной логики уведомления об ошибках.
+    // - Установить свойство ValidatesOnExceptions или воспользоваться встроенным объектом ExceptionValidationRule, определить шаблон ErrorTemplate и/или подключить дополнительную логику, опрашивая свойство Validation.HasError либо обрабатывая событие Validation.Error (если свойство NotifyOnValidationError равно true).
+    
+    // Проверка для группы привязок Binding
+    // Такая коллективная проверка поддерживается с помощью объекта BindingGroup.
+    // Как и в случае Binding, этому объекту можно передать набор правил ValidationRule, которые должны применяться к группе привязок Binding.
+    
+    // Работа с несколькими источниками
+    // WPF предлагает ряд интересных способов объединения нескольких источников данных.
+    // В основе этого механизма лежат следующие классы:
+    // - CompositeCollection
+    // - MultiBinding
+    // - PriorityBinding
 
+    // Класс CompositeCollection
+    // Класс CompositeCollection дает простой способ представить не связанные между собой коллекции и/или произвольные объекты в виде одной коллекции.
+    // Это бывает полезно, когда нужно осуществить привязку к коллекции объектов, поступающих из нескольких источников.
+    // <CompositeCollection>
+    // <CollectionContainer Collection="{Binding Source={StaticResource photos}}"/>
+    // <local:Photo .../>
+    // <local:Photo .../>
+    // </CompositeCollection>
+    // составная коллекция CompositeCollection, содержащая все, что хранится в коллекции photos, и еще два объекта.
 
+    // Класс MultiBinding
+    // Класс MultiBinding позволяет агрегировать несколько объектов Binding, так что приемник будет получать единственное значение.
+    // Для этого необходим конвертер значений, потому что иначе WPF не будет знать, как объединить несколько входных значений.
+    // <ProgressBar ...>
+    // <ProgressBar.Value>
+    // <MultiBinding Converter="{StaticResource converter}">
+    // <Binding Source="{StaticResource worker1}"/>
+    // <Binding Source="{StaticResource worker2}"/>
+    // <Binding Source="{StaticResource worker3}"/>
+    // </MultiBinding>
+    // </ProgressBar.Value>
+    // </ProgressBar>
+    // Однако конвертеры значений для MultiBinding пишутся несколько иначе, чем для Binding.
+    // Они должны реализовывать интерфейс IMultiValueConverter, методы которого принимают и возвращают не одно значение, а целый массив.
+    
+    // СОВЕТ
+    // Совместно с MultiBinding можно использовать метод StringFormat.
+    // В этом случае {0} будет представлять первый объект Binding, {1} – второй и т. д.
 
+    // Класс PriorityBinding
+    // Класс PriorityBinding похож на MultiBinding тем, что инкапсулирует несколько объектов Binding.
+    // Но вместо того чтобы агрегировать их, этот класс организует состязание нескольких привязок за право установить значение свойства-приемника!
+    // Если привязка осуществляется к медленному источнику данных (и не в ваших силах ускорить его работу), то можно подключить более быстрые источники, которые дадут «приближенную» версию данных, пока программа ожидает поступления точной информации. 
+    // <PriorityBinding>
+    // <Binding Source="HighPri" Path="SlowSpeed" IsAsync="True"/>
+    // <Binding Source="MediumPri" Path="MediumSpeed" IsAsync="True"/>
+    // <Binding Source="LowPri" Path="FastSpeed"/>
+    // </PriorityBinding>
+    // СОВЕТ
+    // При использовании элемента PriorityBinding для всех привязок Binding, кроме последней, необходимо присваивать свойству IsAsync значение true, чтобы они обрабатывались в фоновом режиме.
+    // В противном случае наиболее приоритетная привязка будет выполняться синхронно (возможно, «подвешивая» пользовательский интерфейс), а после ее завершения результаты низкоприоритетных привязок уже не будутпредставлять никакого  интереса!
+    
+    // А теперь все вместе: клиент Twitter на чистом XAML
+    // Отметим некоторые интересные особенности решения:
+    // - Первоначально свойство Text поля ввода TextBox привязывается к свойству Source поставщика данных XmlDataProvider.
+    // При этом используется подразумеваемая по умолчанию двусторонняя привязка, чтобы пользователь в любой момент мог изменить адрес источника.
+    // - Чтобы привязка осуществлялась именно к полю Source поставщика данных, в объекте Binding для TextBox свойству BindsDirectlyToSource присвоено значение true.
+    // В противном случае его свойство Path указывало бы на RSS-ленту, а это неправильно.
+    // - В заданном для TextBox объекте Binding свойство UpdateSourceTrigger равно PropertyChanged, поэтому обновление данных будет производиться при нажатии каждой клавиши.
+    // Наверное, было бы лучше задать режим UpdateSourceTrigger= Explicit и добавить кнопку Go (Перейти), чтобы источник можно было обновлять явно.
+    // Но тогда потребовалось бы написать одну строчку процедурного кода, а это противоречит идее примера!
+    // - Значением свойства DisplayMemberPath элемента ListBox является выражение XPath, позволяющее извлекать элемент title из каждой статьи ленты, представленной в формате XML.
+    // - Совместно элементы ListBox и Frame образуют пару главный/подчиненный с общим источником данных.
+    // - Можно было не использовать Frame, а отобразить исходное содержимое каждой RSS-статьи в чем-то типа TextBlock.
+    // Но такую содержащую HTML-теги разметку было бы трудно читать.
+    // И не существует никакого иного декларативного способа правильно визуализировать HTML, кроме как воспользоваться элементом Frame или WebBrowser с указанием URL-адреса файла (его нам любезно предоставляет элемент link, входящий в состав статьи).
+    // - При выборе новой статьи в ленте (или вообще другой ленты) имеющиеся во фрейме кнопки навигации автоматически запоминают ваши действия.
 
 
     // !!!
