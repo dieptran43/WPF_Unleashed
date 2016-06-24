@@ -89,11 +89,20 @@
     <Compile Include="4_ProfessionalTools\13_DataBinding\UsingBinding.xaml.cs">
       <DependentUpon>UsingBinding.xaml</DependentUpon>
     </Compile>
+    <Compile Include="4_ProfessionalTools\14_StyleTemplateCoverTheme\Styles.xaml.cs">
+      <DependentUpon>Styles.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="4_ProfessionalTools\14_StyleTemplateCoverTheme\StyleTemplateCoverTheme.xaml.cs">
+      <DependentUpon>StyleTemplateCoverTheme.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="4_ProfessionalTools\14_StyleTemplateCoverTheme\Templates.xaml.cs">
+      <DependentUpon>Templates.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="4_ProfessionalTools\14_StyleTemplateCoverTheme\VSM.xaml.cs">
+      <DependentUpon>VSM.xaml</DependentUpon>
+    </Compile>
     <Compile Include="4_ProfessionalTools\ProfessionalTools.xaml.cs">
       <DependentUpon>ProfessionalTools.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Linq\Linq.xaml.cs">
-      <DependentUpon>Linq.xaml</DependentUpon>
     </Compile>
     <Compile Include="Testing\Deployment\Deployment.xaml.cs">
       <DependentUpon>Deployment.xaml</DependentUpon>
@@ -532,11 +541,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="4_ProfessionalTools\ProfessionalTools.xaml">
+    <Page Include="4_ProfessionalTools\14_StyleTemplateCoverTheme\Styles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Linq\Linq.xaml">
+    <Page Include="4_ProfessionalTools\14_StyleTemplateCoverTheme\StyleTemplateCoverTheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="4_ProfessionalTools\14_StyleTemplateCoverTheme\Templates.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="4_ProfessionalTools\14_StyleTemplateCoverTheme\VSM.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="4_ProfessionalTools\ProfessionalTools.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

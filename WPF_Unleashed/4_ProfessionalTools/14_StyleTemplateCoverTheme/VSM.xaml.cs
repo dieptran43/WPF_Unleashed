@@ -12,14 +12,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace WPF_Unleashed.Linq
+namespace WPF_Unleashed._4_ProfessionalTools._14_StyleTemplateCoverTheme
 {
     /// <summary>
-    /// Interaction logic for Linq.xaml
+    /// Interaction logic for VSM.xaml
     /// </summary>
-    public partial class Linq : Window
+    public partial class VSM : Window
     {
-        public Linq()
+        public VSM()
         {
             InitializeComponent();
         }

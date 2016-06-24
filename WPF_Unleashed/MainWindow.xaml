@@ -8,7 +8,6 @@
                 " HorizontalAlignment="Left" Margin="10,37,0,0" VerticalAlignment="Top" Width="163" Click="Button_Click_1"/>
         <Button Content="3. Control Elements" HorizontalAlignment="Left" Margin="10,64,0,0" VerticalAlignment="Top" Width="109" Click="Button_Click_2"/>
         <Button Content="Testing" HorizontalAlignment="Left" Margin="214,10,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_3"/>
-        <Button Content="Linq" HorizontalAlignment="Left" Margin="214,37,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_4"/>
         <Button Content="4. Professional Tools" HorizontalAlignment="Left" Margin="10,91,0,0" VerticalAlignment="Top" Width="118" Click="Button_Click_5"/>
     </Grid>
 </Window>

@@ -5,5 +5,6 @@
     <Grid>
         <Button Content="12. Resources" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="80" Click="Button_Click"/>
         <Button Content="13. Data Binding" HorizontalAlignment="Left" Margin="10,37,0,0" VerticalAlignment="Top" Width="93" Click="Button_Click_1"/>
+        <Button Content="14. Style Template Cover Theme" HorizontalAlignment="Left" Margin="10,64,0,0" VerticalAlignment="Top" Width="179" Click="Button_Click_2"/>
     </Grid>
 </Window>

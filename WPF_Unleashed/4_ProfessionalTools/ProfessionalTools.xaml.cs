@@ -35,5 +35,11 @@ namespace WPF_Unleashed._4_ProfessionalTools
             _13_DataBinding.DataBinding window = new _13_DataBinding.DataBinding();
             window.Show();
         }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            _14_StyleTemplateCoverTheme.StyleTemplateCoverTheme window = new _14_StyleTemplateCoverTheme.StyleTemplateCoverTheme();
+            window.Show();
+        }
     }
 }
