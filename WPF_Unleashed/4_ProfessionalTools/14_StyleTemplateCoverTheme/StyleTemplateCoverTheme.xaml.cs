@@ -35,6 +35,18 @@ namespace WPF_Unleashed._4_ProfessionalTools._14_StyleTemplateCoverTheme
             Templates window = new Templates();
             window.Show();
         }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            Cover window = new Cover();
+            window.Show();
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            Themes window = new Themes();
+            window.Show();
+        }
     }
 
     // мы расскажем о четырех краеугольных камнях, на которых покоится поддержка стилизации в WPF:
@@ -372,9 +384,125 @@ namespace WPF_Unleashed._4_ProfessionalTools._14_StyleTemplateCoverTheme
 
     // Обложки
     // Под сменой обложки (скина) понимается изменение внешнего вида приложения «на лету», обычно в программах сторонних фирм.
-    // 
-
-
+    // Но если вы не хотите поощрять полную замену пользовательского интерфейса, то лучше всего сделать корнем представления обложки элемент ResourceDictionary.
+    // В общем и целом, словарь ресурсов представляет собой отличную точку расширяемости из-за той легкости, с которой его можно загружать и выгружать или объединять с другими словарями.
+    // Определяя обложку, имеет смысл включить в ResourceDictionary стили и/или шаблоны.
+    // СОВЕТ
+    // Назначая элементу стиль, который предполагается менять динамически в процессе смены обложки, не забывайте ссылаться на него как на динамический ресурс!
+    // Теперь нетрудно написать и файл обложки:
+    // <ResourceDictionary
+    // ­­xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    // ­­xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    // ­­<Style x:Key="DialogStyle" TargetType="{x:Type StackPanel}">
+    // ­­...
+    // ­­</Style>
+    // ­­<Style x:Key="HeadingStyle" TargetType="{x:Type Label}">
+    // ­­...
+    // ­­</Style>
+    // ­­<Style x:Key="CancelButtonStyle" TargetType="{x:Type Button}">
+    // ­­...
+    // ­­</Style>
+    // ­­До­пол­ни­тель­ные сти­ли...
+    // </ResourceDictionary>
+    // После этого приложению остается только динамически загрузить XAML-файл обложки и назначить его в качестве нового словаря Application.Resources. 
+    // ResourceDictionary resources = null;
+    // using (FileStream fs = new FileStream("CustomSkin.xaml",
+    // ­­­FileMode.Open, FileAccess.Read))
+    // {
+    // // По­лу­чить кор­не­вой эле­мент, ко­то­рый дол­жен быть сло­ва­рем ResourceDictionary
+    // ­­resources = (ResourceDictionary)XamlReader.Load(fs);
+    // }
+    // Application.Current.Resources = resources;
+    // А можно вместо этого загрузить обложку из Интернета, если известен URLадрес:
+    // ResourceDictionary resources = null;
+    // System.Net.WebClient client = new System.Net.WebClient();
+    // using (Stream s = client.OpenRead("http://adamnathan.net/wpf/CustomSkin.xaml"))
+    // }
+    // Application.Current.Resources = resources;
+    // FAQ
+    // Что произойдет, если в обложке не определен именованный стиль, нужный приложению?
+    // Если вы решите полностью подменять текущий словарь Application.Resources новым, а в последнем какие-то стили отсутствуют, то те элементы управления, к которым эти стили применяются, просто вернутся к своему виду по умолчанию. 
+    // КОПНЕМ ГЛУБЖЕ
+    // Обложки, нуждающиеся в процедурном коде
+    // В примере диалогового окна с информацией о ходе загрузки обе обложки находятся в одной и той же сборке, поэтому для их загрузки применяется такой код:
+    // ResourceDictionary resources = (ResourceDictionary)Application.LoadComponent(
+    // ­­new Uri("CustomSkin.xaml", UriKind.RelativeOrAbsolute));
+    // Application.Current.Resources = resources;
+    // FAQ
+    // Как предотвратить вредоносные действия сторонней обложки?
+    
+    // Темы
+    // Если обложки применяются к одному приложению, то темы обычно влияют на те визуальные характеристики операционной системы, которые отражаются в пользовательском интерфейсе всех программ. 
+    
+    // Системные цвета, шрифты и параметры
+    // Свойства, определенные в классах SystemColors, SystemFonts и SystemParameters, автоматически обновляются при смене темы Windows.
+    // Поэтому, чтобы обеспечить согласованность с выбранной пользователем темой, достаточно включить их в свои стили и шаблоны.
+    
+    // Стили и шаблоны тем
+    // Ниже перечислены все созданные Microsoft темы и URI соответствующих им словарей:
+    // - Тема Aero (Windows Vista и Windows 7): themes\Aero.NormalColor.xaml
+    // - Тема Windows XP по умолчанию: themes\Luna.NormalColor.xaml
+    // - Оливковая тема Windows XP: themes\Luna.Homestead.xaml
+    // - Серебристая тема Windows XP: themes\Luna.Metallic.xaml
+    // - Тема Windows XP Media Center Edition 2005 и Windows XP Tablet PC Edition 2005: themes\Royale.NormalColor.xaml
+    // - Тема Windows Classic: themes\Classic.xaml
+    // - Тема Zune Windows XP: themes\Zune.NormalColor.xaml
+    // СОВЕТ
+    // Не забывайте о типовом словаре, когда будете создавать словари тем. Это поможет обеспечить предсказуемое поведение, если встретится неожиданная тема.
+    // Подготовив словари тем и типовой словарь, вы должны будете явно включать механизм автоматической адаптации к теме, снабдив сборку атрибутом ThemeInfoAttribute.
+    // Конструктор этого атрибута принимает два параметра типа Reso­ur­ceDictionaryLocation. 
+    // - None – не искать словарь ресурсов. Это значение по умолчанию.
+    // - SourceAssembly – искать в текущей сборке.
+    // - ExternalAssembly – искать в другой сборке, которая должна называться Assem­blyName.ThemeName.dll (где AssemblyName совпадает с именем текущей сборки).
+    // WPF применяет эту схему ко встроенным словарям тем, которые находятся в сборках PresentationFramework.Aero.dll, PresentationFramework.Luna.dll и т. д.
+    // Этот способ позволяет избежать постоянного присутствия в памяти ресурсов для всех тем.
+    // Типичное использование атрибута ThemeInfoAttribute выглядит так:
+    // Ис­кать сло­ва­ри тем и ти­по­вой сло­варь в этой сбор­ке
+    // [assembly:ThemeInfo(ResourceDictionaryLocation.SourceAssembly,
+    // ­­­­­­­­­­­­­­­­­­­­ResourceDictionaryLocation.SourceAssembly)]
+    // ThemeDictionaryExtension – это расширение разметки, позволяющее переопределять стили темы любых элементов.
+    // <Application ...>
+    // <Application.Resources>
+    // ­­<ResourceDictionary>
+    // ­­<ResourceDictionary.MergedDictionaries>
+    // ­­­­<ResourceDictionary .../>
+    // ­­­­<ResourceDictionary Source="{ThemeDictionary MyApplication}"/>
+    // ­­</ResourceDictionary.MergedDictionaries>
+    // ­­</ResourceDictionary>
+    // </Application.Resources>
+    // </Application>
+    // Другой способ присоединить стили темы к существующим элементам состоит в том, чтобы определить свой подкласс.
+    // Создать подобный элемент исключительно ради назначения ему стиля темы совсем несложно.
+    // Так, в примере секторной диаграммы можно было бы создать следующий нестандартный элемент ProgressPie:
+    // public class ProgressPie : ProgressBar
+    // {
+    // ­­static ProgressPie()
+    // ­­{
+    // ­­­­DefaultStyleKeyProperty.OverrideMetadata(
+    // ­­­­­­typeof(ProgressPie),
+    // ­­­­­­new FrameworkPropertyMetadata(typeof(ProgressPie)));
+    // ­­}
+    // }
+    //  Каждый словарь темы представляет собой автономный XAML-файл со следующей структурой:
+    // <ResourceDictionary
+    // ­­xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    // ­­xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    // ­­xmlns:local="clr­namespace:ThemedProgressPie">
+    // ­­<Style TargetType="{x:Type local:ProgressPie}">
+    // ­­...
+    // ­­</Style>
+    // </ResourceDictionary>
+    // КОПНЕМ ГЛУБЖЕ
+    // Темы и цветовые схемы Windows
+    // В Windows 7 и Windows Vista имеется длинный список цветовых схем в диалоговом окне Дополнительные параметры оформления. 
+    // СОВЕТ
+    // Можете поэкспериментировать с альтернативными обложками для многих элементов управления WPF, скачав файл WPFThemes.zip с сайта http://wpf.codeplex.com.
+    // Чтобы ими воспользоваться, нужно просто сослаться на словарь ресурсов в коллекции Resources для элемента App­lication, Window или еще какого-то:
+    // <Application ...>
+    // <Application.Resources>
+    // <ResourceDictionary Source="BureauBlack.xaml"/>
+    // </Application.Resources>
+    // </Application>
 
 
     // !!!
